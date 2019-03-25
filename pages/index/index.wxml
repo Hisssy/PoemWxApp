@@ -1,13 +1,47 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<!-- index.wxml -->
+<view class="cloud-section">
+  <image src='../../assets/cover/cloud1.png' />
+  <image src='../../assets/cover/cloud2.png' />
+  <image src='../../assets/cover/cloud3.png' />
+</view>
+<view class="title-section">
+  <image src='../../assets/cover/banner_1.png' />
+  <image src='../../assets/cover/banner_2.png' />
+  <image src='../../assets/cover/banner_3.png' />
+  <image src='../../assets/cover/banner_4.png' />
+</view>
+<view class="container" id="main">
+  <image class='userBg' src='../../assets/cover/main_back.png'></image>
+  <view class="login-section">
+    <view class="login-header">
+      <text>个人信息</text>
+    </view>
+    <view class="login-input-section">
+      <view class="login-inline">
+        <view class="login-input">
+          <label for="sName">姓名</label>
+          <input name="sName" type='text' placeholder='' />
+        </view>
+        <view class="login-input">
+          <label for="sSex">性别</label>
+          <input name="sSex" type='text' placeholder='' />
+        </view>
+      </view>
+      <view class="login-inline">
+        <view class="login-input">
+          <label for="sCode">学号</label>
+          <input name="sCode" type='text' placeholder='' />
+        </view>
+      </view>
+      <view class="login-inline">
+        <view class="login-input">
+          <label for="sEmail">邮箱</label>
+          <input name="sEmail" type='text' placeholder='' />
+        </view>
+      </view>
+    </view>
+    <view class="login-btn-section">
+      <button class="btn">登录</button>
+    </view>
   </view>
 </view>
