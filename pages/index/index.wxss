@@ -137,6 +137,7 @@
 	width: 15.204vw;
   height: 14.082vw;
   top: 3.878vw;
+  animation: tiltA 4s linear infinite;
 }
 
 .title-section image:nth-child(2){
@@ -144,6 +145,7 @@
   width: 13.673vw;
   height: 13.163vw;
   left: 21.429vw;
+  animation: tiltB 4s linear infinite;
 }
 
 .title-section image:nth-child(3){
@@ -152,6 +154,7 @@
   height: 15.306vw;
   left: 38.776vw;
   bottom: 0;
+  animation: tiltA 4s linear infinite;
 }
 
 .title-section image:nth-child(4){
@@ -159,6 +162,7 @@
 	width: 15.408vw;
   height: 14.796vw;
   right: 0;
+  animation: tiltB 4s linear infinite;
 }
 
 
@@ -168,5 +172,29 @@
   }
   to {
     transform: translateX(100vw);
+  }
+}
+
+@keyframes tiltB {
+  from {
+    transform: translateY(-2%);
+  }
+  50%{
+    transform: translateY(2%);
+  }
+  to {
+    transform: translateY(-2%);
+  }
+}
+
+@keyframes tiltA {
+  from {
+    transform: translateY(2%);
+  }
+  50%{
+    transform: translateY(-2%);
+  }
+  to {
+    transform: translateY(2%);
   }
 }
