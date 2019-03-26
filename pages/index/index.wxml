@@ -15,6 +15,7 @@
   <view class="login-section">
     <view class="login-header">
       <text>个人信息</text>
+      <image class="close-btn" src="../../assets/cover/close.png"></image>
     </view>
     <view class="login-input-section">
       <view class="login-inline">

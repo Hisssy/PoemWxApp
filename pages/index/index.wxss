@@ -17,7 +17,17 @@
 
 .login-header{
   height: 18vw;
+  width: 100%;
+  position: relative;
   display: flex;
+}
+
+.close-btn{
+  position: absolute;
+  right: 1.32vw;
+  top: 1.32vw;
+  height: 2.4vw;
+  width: 2.4vw;
 }
 .login-header text{
   letter-spacing: 1.3vw;
