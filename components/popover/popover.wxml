@@ -1,0 +1,3 @@
+<popover type="{{type}}" form-items="{{items}}" confirmText='{{confirmText}}' showStatus='{{showModal}}' showCancel="{{showCancel}}" bind:complete="onComplete" catchtouchmove="onTouch">
+    <slot></slot>
+</popover>

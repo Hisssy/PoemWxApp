@@ -10,39 +10,67 @@
   <image src='../../assets/cover/banner_3.png' />
   <image src='../../assets/cover/banner_4.png' />
 </view>
-<view class="container" id="main">
-  <image class='userBg' src='../../assets/cover/main_back.png'></image>
-  <view class="login-section">
-    <view class="login-header">
-      <text>个人信息</text>
-      <image class="close-btn" src="../../assets/cover/close.png"></image>
-    </view>
-    <view class="login-input-section">
-      <view class="login-inline">
-        <view class="login-input">
-          <label for="sName">姓名</label>
-          <input name="sName" type='text' placeholder='' />
+<image class='userBg' src='../../assets/cover/main_back.png'></image>
+<view id="main">
+  <popover wx:if="{{isLoginOpen}}">
+    <view class="login-section">
+      <view class="login-header">
+        <text>个人信息</text>
+        <image class="close-btn" bindtap="closeLoginModal" src="../../assets/cover/close.png"></image>
+      </view>
+      <view class="login-input-section">
+        <view class="login-inline">
+          <view class="login-input">
+            <label for="sName">姓名</label>
+            <input name="sName" type='text' placeholder='' />
+          </view>
+          <view class="login-input">
+            <label for="sSex">性别</label>
+            <input name="sSex" type='text' placeholder='' />
+          </view>
         </view>
-        <view class="login-input">
-          <label for="sSex">性别</label>
-          <input name="sSex" type='text' placeholder='' />
+        <view class="login-inline">
+          <view class="login-input">
+            <label for="sCode">学号</label>
+            <input name="sCode" type='text' placeholder='' />
+          </view>
+        </view>
+        <view class="login-inline">
+          <view class="login-input">
+            <label for="sEmail">邮箱</label>
+            <input name="sEmail" type='text' placeholder='' />
+          </view>
         </view>
       </view>
-      <view class="login-inline">
-        <view class="login-input">
-          <label for="sCode">学号</label>
-          <input name="sCode" type='text' placeholder='' />
-        </view>
-      </view>
-      <view class="login-inline">
-        <view class="login-input">
-          <label for="sEmail">邮箱</label>
-          <input name="sEmail" type='text' placeholder='' />
-        </view>
+      <view class="login-btn-section">
+        <button class="main-btn h login-btn"></button>
       </view>
     </view>
-    <view class="login-btn-section">
-      <button class="btn">登录</button>
+  </popover>
+  <popover>
+    <view class="info-section">
+      <view class="info-potrait-section">
+        <view class="info-avatar"></view>
+        <view class="info-profile">
+          <view class="score">
+            我的积分：
+          </view>
+          <view class="day">
+            已累计答题：
+          </view>
+        </view>
+      </view>
+      <view class="info-detail">
+        姓名
+        学号
+        邮箱
+        性别
+      </view>
+      <button></button>
     </view>
-  </view>
+  </popover>
+  <button class="main-btn h play-btn" bindtap="startGame"></button>
+  <button class="main-btn v rank-btn"></button>
+  <button class="main-btn v info-btn"></button>
+  <button class="main-btn v review-btn"></button>
 </view>

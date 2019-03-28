@@ -5,14 +5,17 @@
 .login-section{
   display: flex;
   width: 82vw;
-  height: 98vw;
-  margin: auto;
+  height:54.873vh;
+  margin:0 auto;
   align-items: center;
   flex-direction: column;
   background-color: #fff3e4;
   z-index: 1;
-  box-shadow: 3px 3px 10px #222222;
+  box-shadow: 2.667vw 2.667vw 2.667vw 0px rgba(8, 5, 0, 0.4); 
   /* display: none; */
+  align-self: flex-end;
+  margin-bottom: 18.291vh;
+  justify-content: space-between;
 }
 
 .login-header{
@@ -24,20 +27,27 @@
 
 .close-btn{
   position: absolute;
-  right: 1.32vw;
-  top: 1.32vw;
-  height: 2.4vw;
+  right: 1.333vw;
+  top: 1.467vw;
   width: 2.4vw;
+	height: 2.4vw;
+	/* background-color: #9b5935; */
 }
 .login-header text{
-  letter-spacing: 1.3vw;
   margin: auto;
-  font-size: 4.5vw;
+	height: 4.8vw;
+	font-family: SourceHanSansCN-Normal;
+	font-size: 4.879vw;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 1.6vw;
+	letter-spacing: 0.973vw;
+	color: #3f1921;
 }
 
 .login-input-section{
   height:50vw;
-  width: 63.3vw;
+  width: 63.467vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,20 +58,57 @@
   display: flex;
 }
 
-.login-btn-section button{
-  width: 41vw;
+.main-btn{
   letter-spacing: 1.8vw;
-  height: 12.3vw;
   margin:auto;
   background-size: 100%,100%;
   color: #f3f3f4;
   border-radius: 0;
-  box-shadow: .5px 1px 4px#666666;
+	box-shadow: 0vw 0.8vw 0.8vw 0vw 
+		rgba(70, 6, 6, 0.4);
 }
 
+.main-btn.h{
+  width: 41.067vw;
+	height: 12.267vw;
+}
+
+.main-btn.v{
+  width: 7.653vw;
+  height: 25.102vw;
+}
+
+.play-btn{
+  position: absolute;
+  bottom: 6.822vh;
+  right: 0;
+  left: 0;
+}
+
+.rank-btn{
+  position: absolute;
+  left: 8.673vw;
+  bottom: 41.371vh;
+}
+
+.info-btn{
+  position: absolute;
+  left: 84.082vw;
+  bottom: 33.543vh;
+}
+
+.review-btn{
+  position: absolute;
+  left: 56.429vw;
+  bottom: 51.257vh;
+}
+
+
 #main{
-  background-color: #8fd1df;
-  padding-top:27vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
 }
 
 .userBg{
@@ -69,6 +116,8 @@
   bottom: 0;
   width: 100vw;
   height: 100vh;
+  background-color: #8fd1df;
+  z-index: -1;
 }
 
 .login-inline {
@@ -90,18 +139,23 @@
 }
 
 .login-inline input{
-  height: 10.6vw;
+	height: 10.267vw;
   background-color: #ffffff;
   width: 100%;
 }
 
 .login-inline label{
-  font-size: 2.2vw;
-  letter-spacing: 0.7vw;
+	height: 2.533vw;
+	font-size: 2.44vw;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 1.6vw;
+	letter-spacing: 0.493vw;
+	color: #3f1921;
 }
 
 .login-inline:first-child input{
-  width: 30.5vw;
+  width: 30.667vw;
 }
 
 .cloud-section{
@@ -111,10 +165,14 @@
   top: 6.531vw;
 }
 
+.cloud-section image{
+  position: absolute;
+  will-change: transform;
+}
+
 .cloud-section image:nth-child(1){
   width: 28.98vw;
   height: 9.082vw;
-  position: absolute;
   animation: cloud 3s linear infinite;
 }
 
@@ -122,7 +180,6 @@
   width: 23.878vw;
   height: 5.51vw;
   top: 6.02vw;
-  position: absolute;
   animation: cloud 5s linear infinite;
 }
 
@@ -130,7 +187,6 @@
   width: 20.612vw;
   height: 4.286vw;
   top: 29.694vw;
-  position: absolute;
   animation: cloud 7s linear infinite;
 }
 
@@ -139,7 +195,7 @@
   width: 74.796vw;
   height: 23.673vw;
   left: 12.551vw;
-  top: 14.49vw;
+  top:7.486vh;
 }
 
 .title-section image:nth-child(1){
@@ -173,11 +229,39 @@
   height: 14.796vw;
   right: 0;
   animation: tiltB 4s linear infinite;
+  will-change: transform;
 }
 
+.info-section{
+  align-self: flex-end;
+  margin: 0 auto;
+  margin-bottom: 35.382vh; 
+  width: 81.867vw;
+	height: 37.781vh;
+	background-color: #faefe9;
+	box-shadow: 2.64vw 2.64vw 2.667vw 0vw 
+		rgba(8, 5, 0, 0.4);
+}
+
+.info-potrait-section{
+  display: flex;
+  background-color:#f7d4c8;
+  width: 100%;
+	height: 11.019vh;
+	background-color: #f7d4c8;
+	box-shadow: 0vh 0.075vh 0.075vh 0vh 
+		rgba(57, 20, 20, 0.4);
+}
+
+.info-avatar{
+  height: 100%;
+  width: 11.019vh;
+  background: #666666;
+}
 
 @keyframes cloud {
   from {
+    transform: translateX(-100%);
     transform: translateX(-100%);
   }
   to {
