@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "popover":"../../../../components/popover/popover"
+    "popover":"../../components/popover/popover"
   },
   "backgroundColor": "#8fd1df"
 }

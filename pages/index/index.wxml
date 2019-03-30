@@ -47,30 +47,31 @@
       </view>
     </view>
   </popover>
-  <popover>
+  <popover wx:if="{{isInfoOpen}}">
     <view class="info-section">
+      <image class="close-btn" bindtap="closeInfoModal" src="../../assets/cover/close.png"></image>
       <view class="info-potrait-section">
-        <view class="info-avatar"></view>
+        <view class="info-avatar">
+          <image src="{{userInfo.avatarUrl}}"></image>
+        </view>
         <view class="info-profile">
-          <view class="score">
-            我的积分：
-          </view>
-          <view class="day">
-            已累计答题：
-          </view>
+          <text class="">我的积分：</text>
+          <text class="">已累计答题：</text>
+          <!-- <view class="score"></view>
+          <view class="day"></view> -->
         </view>
       </view>
       <view class="info-detail">
-        姓名
-        学号
-        邮箱
-        性别
-      </view>
+        <text class="info-detail-text-item">姓名:<text></text></text>
+        <text class="info-detail-text-item">学号:<text></text></text>
+        <text class="info-detail-text-item">邮箱:<text></text></text>
+        <text class="info-detail-text-item">性别:<text></text></text>
+        </view>
       <button></button>
     </view>
   </popover>
   <button class="main-btn h play-btn" bindtap="startGame"></button>
   <button class="main-btn v rank-btn"></button>
-  <button class="main-btn v info-btn"></button>
+  <button class="main-btn v info-btn" bindtap="showInfoModal"></button>
   <button class="main-btn v review-btn"></button>
 </view>

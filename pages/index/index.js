@@ -21,19 +21,19 @@ Page({
   },
   closeInfoModal: function () {
     this.setData({
-      isLoginOpen: false
+      isInfoOpen: false
     })
   },
   showInfoModal: function () {
     this.setData({
-      isLoginOpen: true
+      isInfoOpen: true
     })
   },
   startGame: function () {
     console.log("clicked");
-    
-    if (!this.data.hasUserInfo) {
+    if (this.data.hasUserInfo) {
       //start game here
+      wx.navigateTo({url:"../question/question"})
     } else {
       this.showLoginModal();
     }
