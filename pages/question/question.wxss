@@ -1,36 +1,61 @@
-#main{
+#main {
     background-color: #ddcaae;
     height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
-.flower-hikari{
+.counter {
+    position: relative;
+    width: 15.204vw;
+    height: 9.694vw;
     margin-top: 8.343vh;
 }
-.flower{
 
-	width: 15.204vw;
-	height: 9.694vw;
+.flower-hikari {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    width: 3px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 4.867vw 2vw #faff72;
+    animation: flicker 1s;
+    z-index: 2;
 }
 
-.btn-next{
+@keyframes flicker{
+50%{
+    box-shadow: 0 0 2.867vw 1vw #faff72;
+}
+50%{
+    box-shadow: 0 0 4.867vw 2vw #faff72;
+}
+}
+
+.flower {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-next {
     width: 38.776vw;
     height: 8.163vw;
     margin-bottom: 4.571vh;
-	background-color: #3f1921;
-	font-family: SourceHanSansCN-Normal;
-	font-weight: normal;
+    background-color: #3f1921;
+    font-family: SourceHanSansCN-Normal;
+    font-weight: normal;
     font-stretch: normal;
     font-size: 3.061vw;
-	letter-spacing: 0vw;
+    letter-spacing: 0vw;
     color: #dcc8ac;
-    outline:1.02vw solid #f5d8b3;
+    outline: 1.02vw solid #f5d8b3;
     border-radius: 0;
-    box-shadow: 0.143vw 0.143vw 0.51vw 0vw 
-    #26180c inset,0.143vw 0.143vw 0.51vw 0vw 
-    #26180c;
+    box-shadow: 0.143vw 0.143vw 0.51vw 0vw #26180c inset, 0.143vw 0.143vw 0.51vw 0vw #26180c;
 }
