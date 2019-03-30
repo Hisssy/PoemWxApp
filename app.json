@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/question/question",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/rank/rank"
   ],
   "window":{
     "backgroundTextStyle":"light",
