@@ -38,6 +38,13 @@ Page({
       this.showLoginModal();
     }
   },
+  showRank: function(){
+    // if(this.data.hasUserInfo){
+    wx.navigateTo({url:"../rank/rank"})
+    // } else {
+      // this.showLoginModal();
+    // }
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

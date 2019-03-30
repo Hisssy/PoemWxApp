@@ -1,0 +1,42 @@
+<!--pages/rank/rank.wxml-->
+<view id="rank">
+    <image class="rankBg" src="../../assets/rank/bg.jpg"/>
+    <view class="main">
+        <view>
+            <text class="title">排行榜</text>
+            <text class="time">{{dateTime}}</text>
+        </view>
+        <scroll-view scroll-y="true" scroll-with-animation="true" class="scroll-wrap">
+            <view class="rank-detail show-scale" wx:for="{{rankData}}" wx:key="{{index}}">
+                <text class="num">{{index}}</text>
+                <image class="head-img"></image>
+                <view class="info">
+                    <view class="info-left">
+                        <text>{{item.name}}</text>
+                        <text>{{item.xy}}</text>
+                    </view>
+                    <view class="info-right">
+                        <text>积分:{{item.jf}}</text>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="self-rank show-scale">
+            <text>我的排名</text>
+            <view class="rank-detail">
+                <text class="num">1</text>
+                <image class="head-img"></image>
+                <view class="info">
+                    <view class="info-left">
+                        <text>{{selfData.name}}</text>
+                        <text>{{selfData.xy}}</text>
+                    </view>
+                    <view class="info-right">
+                        <text>积分:{{selfData.jf}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <button class="main-btn h back-btn back" bindtap="backToIndex">返回首页</button>
+</view>
