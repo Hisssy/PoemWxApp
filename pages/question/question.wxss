@@ -1,0 +1,36 @@
+#main{
+    background-color: #ddcaae;
+    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.flower-hikari{
+    margin-top: 8.343vh;
+}
+.flower{
+
+	width: 15.204vw;
+	height: 9.694vw;
+}
+
+.btn-next{
+    width: 38.776vw;
+    height: 8.163vw;
+    margin-bottom: 4.571vh;
+	background-color: #3f1921;
+	font-family: SourceHanSansCN-Normal;
+	font-weight: normal;
+    font-stretch: normal;
+    font-size: 3.061vw;
+	letter-spacing: 0vw;
+    color: #dcc8ac;
+    outline:1.02vw solid #f5d8b3;
+    border-radius: 0;
+    box-shadow: 0.143vw 0.143vw 0.51vw 0vw 
+    #26180c inset,0.143vw 0.143vw 0.51vw 0vw 
+    #26180c;
+}

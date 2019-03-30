@@ -1,0 +1,6 @@
+<view id="main">
+    <view class="flower-hikari">
+        <image class="flower" src="../../assets/answer/flower.png"></image>
+    </view>
+    <button class="btn-next">下一题</button>
+</view>
