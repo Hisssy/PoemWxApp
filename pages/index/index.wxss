@@ -64,13 +64,12 @@
   background-size: 100%,100%;
   color: #f3f3f4;
   border-radius: 0;
-	box-shadow: 0vw 0.8vw 0.8vw 0vw 
-		rgba(70, 6, 6, 0.4);
+  box-shadow: 0vw 0.8vw 0.8vw 0vw rgba(70, 6, 6, 0.4);
 }
 
 .main-btn.h{
   width: 41.067vw;
-	height: 12.267vw;
+  height: 12.267vw;
 }
 
 .main-btn.v{

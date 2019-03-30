@@ -71,7 +71,7 @@
     </view>
   </popover>
   <button class="main-btn h play-btn" bindtap="startGame"></button>
-  <button class="main-btn v rank-btn"></button>
+  <button class="main-btn v rank-btn" bindtap="showRank"></button>
   <button class="main-btn v info-btn" bindtap="showInfoModal"></button>
   <button class="main-btn v review-btn"></button>
 </view>
