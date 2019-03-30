@@ -36,7 +36,7 @@
   font-size: 7.34693878vw;
   text-align: center;
   letter-spacing: 5px;
-  margin: 1.21212121% 0 2.42424242% 0;
+  margin: 4.24242424% 0 2.42424242% 0;
 }
 .main .time {
   font-size: 2.44897959vw;

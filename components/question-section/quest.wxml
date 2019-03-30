@@ -1,0 +1,31 @@
+<view id="quest">
+  <view class="click-word">
+    <view class="title">点字成诗（1/3）</view>
+    <view class="words">
+      <view class="word jz" wx:for="{{words}}" wx:key="{{index}}" bindtap="selectWord"  data-index="{{index}}">
+        <text wx:if="{{!item.isSelect}}" data-index="{{index}}">{{item.word}}</text>
+      </view>
+    </view>
+    <view class="user-answer">
+      <view class="word answer-word jz" wx:for="{{userAnswer}}" wx:key="{{index}}">
+        <text vw:show="{{item.word}}">{{item.word}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="select">
+    <view class="title">选择题（1/4）</view>
+    <view class="content">
+      <text wx:for="{{aaa}}" wx:key="{{index}}">{{item}}</text>
+      <text>（ ）</text>
+    </view>
+    <view class="option-wrap">
+      <view class="option" wx:for="{{option}}" wx:key="index">
+        <view class="no jz">{{item.option}}</view>
+        <view>{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view></view>
+</view>

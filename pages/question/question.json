@@ -1,3 +1,6 @@
 {
-    "backgroundColor": "#dcc8ad"
+  "usingComponents": {
+    "question-section":"../../components/question-section/quest"
+  },
+  "backgroundColor": "#dcc8ad"
 }
