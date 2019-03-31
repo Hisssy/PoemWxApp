@@ -11,11 +11,6 @@ Page({
         name:'xxx',
         xy:'xxx',
         jf:'xxx'
-      },
-      {
-        name:'xxx',
-        xy:'xxx',
-        jf:'xxx'
       }
     ],
     selfData:{
