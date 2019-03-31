@@ -36,14 +36,13 @@ Page({
   },
   startGame: function () {
     console.log("clicked");
-    if (this.data.hasUserInfo) {
+    //if (this.data.hasUserInfo) {
       //start game here
-      wx.navigateTo({
-        url: "../question/question"
-      })
-    } else {
-      this.showLoginModal();
-    }
+      wx.navigateTo({url:"../question/question"})
+    //} else {
+    //  this.showLoginModal();
+    //}
+
   },
   showRank: function () {
     // if(this.data.hasUserInfo){
