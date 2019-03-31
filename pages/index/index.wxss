@@ -2,115 +2,117 @@
 
 /**index.wxss**/
 
-.login-section{
+.login-section {
   display: flex;
   width: 82vw;
-  height:54.873vh;
-  margin:0 auto;
+  height: 54.873vh;
+  margin: 0 auto;
   align-items: center;
   flex-direction: column;
   background-color: #fff3e4;
   z-index: 1;
-  box-shadow: 2.667vw 2.667vw 2.667vw 0px rgba(8, 5, 0, 0.4); 
+  box-shadow: 2.667vw 2.667vw 2.667vw 0px rgba(8, 5, 0, 0.4);
   /* display: none; */
   align-self: flex-end;
   margin-bottom: 18.291vh;
   justify-content: space-between;
 }
 
-.login-header{
+.login-header {
   height: 18vw;
   width: 100%;
   position: relative;
   display: flex;
 }
 
-.close-btn{
+.close-btn {
   position: absolute;
   right: 1.333vw;
   top: 1.467vw;
   width: 2.4vw;
-	height: 2.4vw;
-	/* background-color: #9b5935; */
-}
-.login-header text{
-  margin: auto;
-	height: 4.8vw;
-	font-family: SourceHanSansCN-Normal;
-	font-size: 4.879vw;
-	font-weight: normal;
-	font-stretch: normal;
-	line-height: 1.6vw;
-	letter-spacing: 0.973vw;
-	color: #3f1921;
+  height: 2.4vw;
+  /* background-color: #9b5935; */
 }
 
-.login-input-section{
-  height:50vw;
+.login-header text {
+  margin: auto;
+  height: 4.8vw;
+  font-family: SourceHanSansCN-Normal;
+  font-size: 4.879vw;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.973vw;
+  color: #3f1921;
+}
+
+.login-input-section {
+  height: 50vw;
   width: 63.467vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.login-btn-section{
+.login-btn-section {
   height: 30vw;
   display: flex;
 }
 
-.main-btn{
-  letter-spacing: 1.8vw;
-  margin:auto;
-  background-size: 100%,100%;
-  color: #f3f3f4;
-  border-radius: 0;
-  box-shadow: 0vw 0.8vw 0.8vw 0vw rgba(70, 6, 6, 0.4);
+.main-btn.h {
+  width: 40.933vw;
+  height: 12.4vw;
 }
 
-.main-btn.h{
-  width: 41.067vw;
-  height: 12.267vw;
-}
-
-.main-btn.v{
+.main-btn.v {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 7.653vw;
   height: 25.102vw;
+  writing-mode: vertical-rl;
+  padding: 0;
+  font-size: 4vw;
 }
 
-.play-btn{
+.play-btn {
+  background-image: linear-gradient(90deg, #a42d2d 5%, #fff 5%, #fff 6%, #a42d2d 6%, #a42d2d 94%, #fff 94%, #fff 95%, #a42d2d 95%);
   position: absolute;
   bottom: 6.822vh;
   right: 0;
   left: 0;
 }
 
-.rank-btn{
+.rank-btn {
   position: absolute;
+  background: linear-gradient(0deg, #066054 0%, #066054 5%, #fff 5%, #fff 6%, #066054 6%, #066054 94%, #fff 94%, #fff 95%, #066054 95%, #066054 100%);
   left: 8.673vw;
   bottom: 41.371vh;
 }
 
-.info-btn{
+.info-btn {
   position: absolute;
+  background: linear-gradient(0deg, #343569 0%, #343569 5%, #fff 5%, #fff 6%, #343569 6%, #343569 94%, #fff 94%, #fff 95%, #343569 95%, #343569 100%);
   left: 84.082vw;
   bottom: 33.543vh;
 }
 
-.review-btn{
+.review-btn {
   position: absolute;
+  background-color: #426670;
+  background: linear-gradient(0deg, #426670 0%, #426670 5%, #fff 5%, #fff 6%, #426670 6%, #426670 94%, #fff 94%, #fff 95%, #426670 95%, #426670 100%);
   left: 56.429vw;
   bottom: 51.257vh;
 }
 
 
-#main{
+#main {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
 }
 
-.userBg{
+.userBg {
   position: fixed;
   bottom: 0;
   width: 100vw;
@@ -121,91 +123,91 @@
 
 .login-inline {
   display: flex;
-  flex-direction:column; 
+  flex-direction: column;
 }
 
-.login-input{
+.login-input {
   display: flex;
   height: 15.3vw;
-  flex-direction:column;
-  justify-content:space-between;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 
-.login-inline:first-child{
+.login-inline:first-child {
   flex-direction: row;
   justify-content: space-between;
 }
 
-.login-inline input{
-	height: 10.267vw;
+.login-inline input {
+  height: 10.267vw;
   background-color: #ffffff;
   width: 100%;
 }
 
-.login-inline label{
-	height: 2.533vw;
-	font-size: 2.44vw;
-	font-weight: normal;
-	font-stretch: normal;
-	line-height: 1.6vw;
-	letter-spacing: 0.493vw;
-	color: #3f1921;
+.login-inline label {
+  height: 2.533vw;
+  font-size: 2.44vw;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.6vw;
+  letter-spacing: 0.493vw;
+  color: #3f1921;
 }
 
-.login-inline:first-child input{
+.login-inline:first-child input {
   width: 30.667vw;
 }
 
-.cloud-section{
+.cloud-section {
   position: absolute;
   width: 100%;
   height: 29.694vw;
   top: 6.531vw;
 }
 
-.cloud-section image{
+.cloud-section image {
   position: absolute;
   will-change: transform;
 }
 
-.cloud-section image:nth-child(1){
+.cloud-section image:nth-child(1) {
   width: 28.98vw;
   height: 9.082vw;
   animation: cloud 3s linear infinite;
 }
 
-.cloud-section image:nth-child(2){
+.cloud-section image:nth-child(2) {
   width: 23.878vw;
   height: 5.51vw;
   top: 6.02vw;
   animation: cloud 5s linear infinite;
 }
 
-.cloud-section image:nth-child(3){
+.cloud-section image:nth-child(3) {
   width: 20.612vw;
   height: 4.286vw;
   top: 29.694vw;
   animation: cloud 7s linear infinite;
 }
 
-.title-section{
+.title-section {
   position: absolute;
   width: 74.796vw;
   height: 23.673vw;
   left: 12.551vw;
-  top:7.486vh;
+  top: 7.486vh;
 }
 
-.title-section image:nth-child(1){
+.title-section image:nth-child(1) {
   position: absolute;
-	width: 15.204vw;
+  width: 15.204vw;
   height: 14.082vw;
   top: 3.878vw;
   animation: tiltA 4s linear infinite;
 }
 
-.title-section image:nth-child(2){
+.title-section image:nth-child(2) {
   position: absolute;
   width: 13.673vw;
   height: 13.163vw;
@@ -213,7 +215,7 @@
   animation: tiltB 4s linear infinite;
 }
 
-.title-section image:nth-child(3){
+.title-section image:nth-child(3) {
   position: absolute;
   width: 16.837vw;
   height: 15.306vw;
@@ -222,71 +224,89 @@
   animation: tiltA 4s linear infinite;
 }
 
-.title-section image:nth-child(4){
+.title-section image:nth-child(4) {
   position: absolute;
-	width: 15.408vw;
+  width: 15.408vw;
   height: 14.796vw;
   right: 0;
   animation: tiltB 4s linear infinite;
   will-change: transform;
 }
 
-.info-section{
+.info-section {
   position: relative;
   align-self: flex-end;
   margin: 0 auto;
-  margin-bottom: 35.382vh; 
-  width: 81.867vw;
-	height: 37.781vh;
-	background-color: #faefe9;
-	box-shadow: 2.64vw 2.64vw 2.667vw 0vw 
-		rgba(8, 5, 0, 0.4);
-}
-
-.info-potrait-section{
   display: flex;
-  background-color:#f7d4c8;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 35.382vh;
+  width: 81.867vw;
+  height: 37.781vh;
+  background-color: #faefe9;
+  box-shadow: 2.64vw 2.64vw 2.667vw 0vw rgba(8, 5, 0, 0.4);
+}
+
+.info-section .main-btn {
+  transform: translateY(50%);
+}
+
+.info-potrait-section {
+  display: flex;
+  background-color: #f7d4c8;
   width: 100%;
-	height: 11.019vh;
-	background-color: #f7d4c8;
-	box-shadow: 0vh 0.075vh 0.075vh 0vh 
-		rgba(57, 20, 20, 0.4);
-}
-.info-section text{
-	font-family: SourceHanSansCN-Normal;
-	font-size: 2.44vw;
-	font-weight: normal;
-	font-stretch: normal;
-	line-height: 1.6vw;
-	letter-spacing: 0vw;
-	color: #533d24;
+  height: 11.019vh;
+  background-color: #f7d4c8;
+  box-shadow: 0vh 0.075vh 0.075vh 0vh rgba(57, 20, 20, 0.4);
 }
 
-.info-detail text{
-	color: #3f1921;
+.info-section text {
+  font-family: SourceHanSansCN-Normal;
+  font-size: 2.44vw;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 1.6vw;
+  letter-spacing: 0vw;
+  color: #533d24;
 }
 
-.info-profile{
+.info-detail {
+  display: flex;
+  width: 61.867vw;
+  height: 12.819vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.info-detail text {
+  color: #3f1921;
+  height: 33.3%;
+}
+
+.info-profile {
   display: flex;
   height: 100%;
-  margin:auto 0;
-  margin-left:5vw;
+  margin: auto 0;
+  margin-left: 5vw;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.info-detail text.info-detail-text-item{
+.info-detail text.info-detail-text-item {
   letter-spacing: 0.493vw;
 }
 
 
-.info-avatar{
+.info-avatar {
   height: 100%;
   width: 11.019vh;
   background: #666666;
 }
 
-.info-avatar image{
+.info-avatar image {
   width: 100%;
   height: 100%;
 }
@@ -296,6 +316,7 @@
     transform: translateX(-100%);
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(100vw);
   }
@@ -305,9 +326,11 @@
   from {
     transform: translateY(-2%);
   }
-  50%{
+
+  50% {
     transform: translateY(2%);
   }
+
   to {
     transform: translateY(-2%);
   }
@@ -317,9 +340,11 @@
   from {
     transform: translateY(2%);
   }
-  50%{
+
+  50% {
     transform: translateY(-2%);
   }
+
   to {
     transform: translateY(2%);
   }

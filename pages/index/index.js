@@ -5,6 +5,11 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
+    userCode: "70122222222",
+    userEmail: "foo@bar.foo",
+    userName: "Xxx",
+    userScore: 514,
+    userQuesCnt: 114,
     isLoginOpen: false,
     isInfoOpen: false,
   },
@@ -33,16 +38,20 @@ Page({
     console.log("clicked");
     if (this.data.hasUserInfo) {
       //start game here
-      wx.navigateTo({url:"../question/question"})
+      wx.navigateTo({
+        url: "../question/question"
+      })
     } else {
       this.showLoginModal();
     }
   },
-  showRank: function(){
+  showRank: function () {
     // if(this.data.hasUserInfo){
-    wx.navigateTo({url:"../rank/rank"})
+    wx.navigateTo({
+      url: "../rank/rank"
+    })
     // } else {
-      // this.showLoginModal();
+    // this.showLoginModal();
     // }
   },
   onLoad: function () {

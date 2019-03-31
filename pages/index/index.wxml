@@ -55,25 +55,23 @@
           <image src="{{userInfo.avatarUrl}}"></image>
         </view>
         <view class="info-profile">
-          <text class="">我的积分：</text>
-          <text class="">已累计答题：</text>
+          <text class="">我的积分：{{userScore}}</text>
+          <text class="">已累计答题：{{userQuesCnt}}</text>
           <!-- <view class="score"></view>
           <view class="day"></view> -->
         </view>
       </view>
       <view class="info-detail">
-        <text class="info-detail-text-item">姓名:<text></text></text>
-        <text class="info-detail-text-item">学号:<text></text></text>
-        <text class="info-detail-text-item">邮箱:<text></text></text>
-        <text class="info-detail-text-item">性别:<text></text></text>
-        </view>
-      <button></button>
+        <text class="info-detail-text-item">姓名:{{userName}}</text>
+        <text class="info-detail-text-item">学号:{{userCode}}</text>
+        <text class="info-detail-text-item">邮箱:{{userEmail}}</text>
+        <text class="info-detail-text-item">性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}</text>
+      </view>
+      <button class="main-btn">保存</button>
     </view>
   </popover>
-  <button class="main-btn h play-btn" bindtap="startGame" open-type="getUserInfo"></button>
-  <button class="main-btn v rank-btn"></button>
-  <button class="main-btn h play-btn" bindtap="startGame" open-type="getUserInfo"></button>
-  <button class="main-btn v rank-btn" bindtap="showRank"></button>
-  <button class="main-btn v info-btn" bindtap="showInfoModal"></button>
-  <button class="main-btn v review-btn"></button>
+  <button class="main-btn line h play-btn" bindtap="startGame" open-type="getUserInfo">开始游戏</button>
+  <button class="main-btn v rank-btn" bindtap="showRank">排行榜</button>
+  <button class="main-btn v info-btn" bindtap="showInfoModal">个人信息</button>
+  <button class="main-btn v review-btn">今日回顾</button>
 </view>
