@@ -53,6 +53,11 @@ Page({
     // this.showLoginModal();
     // }
   },
+  showReview: function () {
+    wx.navigateTo({
+      url: "../review/review"
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
