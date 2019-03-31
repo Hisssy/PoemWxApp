@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/question/question",
     "pages/logs/logs",
-    "pages/rank/rank"
+    "pages/rank/rank",
+    "pages/review/review"
   ],
   "window":{
     "backgroundTextStyle":"light",
