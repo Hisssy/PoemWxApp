@@ -1,5 +1,6 @@
 Page({
   data:{
-    questionType:1
+    questionType:1,
+    th:1
   }
 })

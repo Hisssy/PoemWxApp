@@ -1,3 +1,29 @@
+@font-face {font-family: "iconfont";
+  src: url('../../assets/font/iconfont.eot?t=1554130364353'); /* IE9 */
+  src: url('../../assets/font/iconfont.eot?t=1554130364353#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALsAAsAAAAABtgAAAKeAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqBQIE3ATYCJAMMCwgABCAFhG0HNhv9BciemjwpkcU+htBsQRVEAJXi4b+1330zs4uIJNH26X46STWRConQIBUrlZC8hJ2cyzyB26upyBGxwkLScnppOubzExLoPFo+D6THfmtI5mx7eZNX7/NcTm8CHcg1vmW5rT2f34sCTDDQsQZFVoDYML1qUsLoq9MEOs1K4dqta+kBQQWeFIgHReJAsJNUlLjSLtQTK8tzoNKeHpOAJ/X7+JcVQZIqwzP37mtFUPEV/9WZ55o5p4Kgus6PeB0Za4BCnE8WD3lEzHl0Gr3LjbUipKsyTQMoZWWuP/rHS0QNt3eDJVhKfMUzGcFX5xoJZFCbcguwg9jhHZPo7RlvZyNpZG/+YjPR2Z1LGGTt2vP55NH9zbO4NDm2HUuZsyWnD/yJaJQvS92dy7eiYmHPynJt0V6R9NWCZZwTC08Ke+G9vUX7hXWgf/s9sxWrev6t1h0Irsv57VZ9fPz3D2b/1gDDAJqXvJVuYHmuKs956mVeJl1vF30lByMFfF7WvSrttjDtvwwFXlhT3TcNILSVBrpyKYwW2wPZ1MF8QifJ0AAcHfRy3DRyuVLo2zuqGEmbGWTt5sjCrqHSZR21dhvotKp+fZchlEeUDqxYBgj9jpH0+kDW744s7DMqo75Q6w8POu1H3I5dFkIJV1PEMSRCfhwqAjEx9bCw7uxCkqNztK1RfB+itpKBmWkZ/Uo9MhG9Yo49ImUxhiGmxIB14Dyk6wRalKhIYGkyY1ZRejqe+lCaQAwQtoNCOAwignjjIIWAMGHRnwkPvt8FkTh0HLogWMr3QSibMjiUKU3GBrLeaG4S/Mo7thGSLAyDQRhFGKA64Ed0UiQga3qYChEwaeQDeUuRdNQLbzWmPW82PFARd4Hn5kiRo8g3MueXiEMdAAAAAA==') format('woff2'),
+  url('../../assets/font/iconfont.woff?t=1554130364353') format('woff'),
+  url('../../assets/font/iconfont.ttf?t=1554130364353') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('../../assets/font/iconfont.svg?t=1554130364353#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cha:before {
+  content: "\e61a";
+}
+
+.icon-gougou:before {
+  content: "\e651";
+}
+
+
 @allHeight:1750;
 @allWidth:980;
 
@@ -12,7 +38,7 @@
 }
 
 .click-word {
-  display: none;
+
   .words {
     margin: 190/@allHeight*100vh 0 130/@allHeight*100vh 0;
     justify-content: center;
@@ -41,9 +67,8 @@
 }
 
 .select {
-
   .content {
-    font-size:28/@allWidth*100vw;
+    font-size:38/@allWidth*100vw;
     text-align: center;
     margin-top:115/@allHeight*100vh;
     >text {
@@ -59,7 +84,7 @@
 .option-wrap {
   .option{
     margin-top:100/@allHeight*100vh;
-    font-size:28/@allWidth*100vw;
+    font-size:38/@allWidth*100vw;
     display: flex;
     align-items: center;
     >view:nth-of-type(1) {

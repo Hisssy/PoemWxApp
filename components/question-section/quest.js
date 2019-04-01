@@ -16,16 +16,26 @@ Component({
             {option:'C',value:'一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'},
             {option:'D',value:'一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'}
         ],
+        optionPD:[
+            {option:""}
+        ],
         aaa:['清平调','云想衣裳花想容，春风拂槛露华浓。','若非群玉山头见，会向瑶台月下逢。']
+    },
+    properties:{
+        questType:{
+            type:Number,
+            value:1
+        },
+        th:{
+            type:Number,
+            value:1
+        }
     },
     methods: {
         selectWord:function(event){
             var wordIndex = event.currentTarget.dataset.index;
             var words = this.data.words;
-            if(words[wordIndex].isSelect==1){
-                return;
-            }
-            words[wordIndex].isSelect = 1;
+
             var userAnswerX = this.data.userAnswer;
             var answerIndex = -1;
             for(let i in userAnswerX){
@@ -37,6 +47,12 @@ Component({
             if(answerIndex==-1){
                 return;
             }
+
+            if(words[wordIndex].isSelect==1){
+                return;
+            }
+            words[wordIndex].isSelect = 1;
+
             userAnswerX[answerIndex].word = this.data.words[wordIndex].word;
             userAnswerX[answerIndex].wordIndex = wordIndex;
             this.setData({
@@ -74,6 +90,11 @@ Component({
             this.setData({
                 option:option
             })
+        }
+    },
+    lifetimes:{
+        attached(){
+            console.log(this.data.questType==2)
         }
     }
 })
