@@ -2,6 +2,9 @@
   font-size: 4.89795918vw;
   letter-spacing: 1.2244898vw;
 }
+.click-word {
+  display: none;
+}
 .click-word .words {
   margin: 10.85714286vh 0 7.42857143vh 0;
   justify-content: center;
@@ -25,9 +28,6 @@
   width: 10.20408163vw;
   height: 5.71428571vh;
   margin: 0 1.02040816vw;
-}
-.select {
-  display: none;
 }
 .select .content {
   font-size: 2.85714286vw;

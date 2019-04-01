@@ -7,7 +7,7 @@
       </view>
     </view>
     <view class="user-answer">
-      <view class="word answer-word jz" wx:for="{{userAnswer}}" wx:key="{{index}}">
+      <view class="word answer-word jz" wx:for="{{userAnswer}}" wx:key="{{index}}" bindtap="wordBack" data-data="{{item}}" data-index="{{index}}">
         <text vw:show="{{item.word}}">{{item.word}}</text>
       </view>
     </view>
@@ -20,8 +20,9 @@
       <text>（ ）</text>
     </view>
     <view class="option-wrap">
-      <view class="option" wx:for="{{option}}" wx:key="index">
-        <view class="no jz">{{item.option}}</view>
+      <view class="option" wx:for="{{option}}" wx:key="index" bindtap="selectClick" data-index="{{index}}">
+        <view class="{{item.isSelect?'yes':'no'}} jz">{{item.option}}</view>
+        <!--<view class="yes jz">{{item.option}}</view>-->
         <view>{{item.value}}</view>
       </view>
     </view>
