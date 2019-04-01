@@ -1,0 +1,46 @@
+.main {
+	background-color: #d9c5aa;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.review {
+	width: 93.867vw;
+	height: 67.466vh;
+	margin-top: 13.193vh;
+	margin-bottom: 2.024vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.review-wrap {
+	width: 69.6vw;
+	height: 53.672vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.review-content {
+	width: 100%;
+	height: 35.532vh;
+}
+
+.review-title {
+	font-family: SourceHanSansCN-Normal;
+	font-size: 4.269vw;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.853vw;
+	color: #3f1921;
+}
+
+review-poem {
+	width: 100%;
+	height: 21.067vw;
+}

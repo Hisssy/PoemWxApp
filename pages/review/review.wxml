@@ -1,1 +1,11 @@
-<view class=""></view>
+<view class="paper-like main">
+  <view class="review">
+    <view class="review-wrap">
+      <view class="review-title">今日回顾</view>
+      <view class="review-content">
+        <review-poem wx:for="{{reviewPoem}}" poemIndex="{{index}}" poemAuthor="{{item.poemAuthor}}" poemBody="{{item.poemBody}}" poemTitle="{{item.poemTitle}}" class=""></review-poem>
+      </view>
+    </view>
+  </view>
+  <button class="main-btn line" bindtap="backToIndex">返回首页</button>
+</view>
