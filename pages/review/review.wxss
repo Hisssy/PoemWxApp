@@ -23,7 +23,7 @@
 	height: 53.672vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .review-content {
@@ -42,5 +42,5 @@
 
 review-poem {
 	width: 100%;
-	height: 21.067vw;
+	height: 24.067vw;
 }

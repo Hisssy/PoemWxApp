@@ -1,7 +1,7 @@
 <!-- components/review-poem/poem.wxml -->
 
 <view class="poem poem-index">
-  第{{["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三"][poemIndex]}}题
+  第{{["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三"][poemIndex+1]}}题
 </view>
 <view class="poem poem-title">{{poemTitle}}</view>
 <view class="poem poem-author">{{poemAuthor}}</view>

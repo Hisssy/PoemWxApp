@@ -11,7 +11,7 @@ Component({
     },
     poemTitle: String,
     poemBody: String,
-    poemIndex: String
+    poemIndex: Number
   },
 
   /**

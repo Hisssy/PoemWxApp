@@ -16,5 +16,6 @@
 :host {
     display: flex;
 	flex-wrap: wrap;
-    border-bottom: 0.267vw solid #3f1921
+    border-bottom: 0.267vw solid #3f1921;
+    justify-content: space-between;
 }
