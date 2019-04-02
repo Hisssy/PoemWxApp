@@ -18,8 +18,11 @@
 .icon-cha:before {
   content: "\e61a";
 }
+.icon-cha {
+  font-size:23px;
+}
 
-.icon-gougou:before {
+.icon-gou:before {
   content: "\e651";
 }
 
@@ -32,13 +35,16 @@
   height:@h/@allHeight*100vh;
 }
 
+.quest {
+  animation:0.5s show forwards;
+}
+
 .title {
   font-size:48/@allWidth*100vw;
   letter-spacing: 12/@allWidth*100vw;
 }
 
 .click-word {
-
   .words {
     margin: 190/@allHeight*100vh 0 130/@allHeight*100vh 0;
     justify-content: center;
@@ -109,9 +115,24 @@
     color:#3e1a21;
   }
 }
+.pd {
+  .option-wrap {
+    display: flex;
+    justify-content: space-around;
+  }
+}
 
 .jz {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

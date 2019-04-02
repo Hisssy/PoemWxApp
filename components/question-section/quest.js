@@ -17,7 +17,8 @@ Component({
             {option:'D',value:'一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'}
         ],
         optionPD:[
-            {option:""}
+            {className:'icon-cha'},
+            {className:'icon-gou'}
         ],
         aaa:['清平调','云想衣裳花想容，春风拂槛露华浓。','若非群玉山头见，会向瑶台月下逢。']
     },
@@ -82,14 +83,27 @@ Component({
         },
         selectClick:function(event){
             var optionIndex = event.currentTarget.dataset.index;
-            var option = this.data.option;
-            for(let i = 0;i<option.length;i++){
-                option[i].isSelect = 0;
+            var type = event.currentTarget.dataset.type;
+            if(type==1){
+                let option = this.data.option;
+                for(let i = 0;i<option.length;i++){
+                    option[i].isSelect = 0;
+                }
+                option[optionIndex].isSelect = 1;
+                this.setData({
+                    option:option
+                })
+            }else if(type==2){
+                let option = this.data.optionPD;
+                for(let i = 0;i<option.length;i++){
+                    option[i].isSelect = 0;
+                }
+                option[optionIndex].isSelect = 1;
+                this.setData({
+                    optionPD:option
+                })
+                console.log(option)
             }
-            option[optionIndex].isSelect = 1;
-            this.setData({
-                option:option
-            })
         }
     },
     lifetimes:{

@@ -1,4 +1,4 @@
-<view id="quest">
+<view class="quest">
   <view class="click-word" wx:if="{{questType==1}}">
     <view class="title">点字成诗（1/3）</view>
     <view class="words">
@@ -20,25 +20,22 @@
       <text>（ ）</text>
     </view>
     <view class="option-wrap">
-      <view class="option" wx:for="{{option}}" wx:key="index" bindtap="selectClick" data-index="{{index}}">
+      <view class="option" wx:for="{{option}}" wx:key="index" bindtap="selectClick" data-index="{{index}}" data-type="1">
         <view class="{{item.isSelect?'yes':'no'}} jz">{{item.option}}</view>
         <view>{{item.value}}</view>
       </view>
     </view>
   </view>
 
-  <view class="select" wx:if="{{questType==3}}">
+  <view class="select pd" wx:if="{{questType==3}}">
     <view class="title">判断题（{{th}}/4）</view>
     <view class="content">
       <text wx:for="{{aaa}}" wx:key="{{index}}">{{item}}</text>
       <text>（ ）</text>
     </view>
     <view class="option-wrap">
-      <view class="option" bindtap="selectClick" data-index="0">
-        <view class="iconfont icon-cha jz">{{item.option}}</view>
-      </view>
-      <view class="option" bindtap="selectClick" data-index="1">
-        <view class="iconfont icon-gougou jz">{{item.option}}</view>
+      <view class="option" bindtap="selectClick" data-type="2" data-dataName="optionPD" data-index="{{index}}" wx:for="{{optionPD}}" wx:key="{{index}}">
+        <view class="iconfont {{item.className}} {{item.isSelect?'yes':'no'}} jz"></view>
       </view>
     </view>
   </view>

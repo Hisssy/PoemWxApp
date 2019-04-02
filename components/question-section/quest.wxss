@@ -15,8 +15,14 @@
 .icon-cha:before {
   content: "\e61a";
 }
-.icon-gougou:before {
+.icon-cha {
+  font-size: 23px;
+}
+.icon-gou:before {
   content: "\e651";
+}
+.quest {
+  animation: 0.5s show forwards;
 }
 .title {
   font-size: 4.89795918vw;
@@ -85,9 +91,21 @@
   box-shadow: inset 0 0 1px #3e1a21;
   color: #3e1a21;
 }
+.pd .option-wrap {
+  display: flex;
+  justify-content: space-around;
+}
 .jz {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 /*# sourceMappingURL=quest.wxss.map */
