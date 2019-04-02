@@ -23,6 +23,7 @@
 }
 .quest {
   animation: 0.5s show forwards;
+  min-height: 50vh;
 }
 .title {
   font-size: 4.89795918vw;
