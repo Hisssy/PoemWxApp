@@ -16,20 +16,31 @@ Component({
             {option:'C',value:'一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'},
             {option:'D',value:'一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'}
         ],
+        optionPD:[
+            {className:'icon-cha'},
+            {className:'icon-gou'}
+        ],
         aaa:['清平调','云想衣裳花想容，春风拂槛露华浓。','若非群玉山头见，会向瑶台月下逢。']
+    },
+    properties:{
+        questType:{
+            type:Number,
+            value:1
+        },
+        th:{
+            type:Number,
+            value:1
+        }
     },
     methods: {
         selectWord:function(event){
             var wordIndex = event.currentTarget.dataset.index;
             var words = this.data.words;
-            if(words[wordIndex].isSelect==1){
-                return;
-            }
-            words[wordIndex].isSelect = 1;
+
             var userAnswerX = this.data.userAnswer;
             var answerIndex = -1;
             for(let i in userAnswerX){
-                if(userAnswerX[i].word==undefined){
+                if(userAnswerX[i].word==undefined || userAnswerX[i].word==''){
                     answerIndex = i;
                     break;
                 }
@@ -37,11 +48,67 @@ Component({
             if(answerIndex==-1){
                 return;
             }
+
+            if(words[wordIndex].isSelect==1){
+                return;
+            }
+            words[wordIndex].isSelect = 1;
+
             userAnswerX[answerIndex].word = this.data.words[wordIndex].word;
+            userAnswerX[answerIndex].wordIndex = wordIndex;
             this.setData({
                 userAnswer:userAnswerX,
                 words:words
             });
+        },
+        wordBack:function(event){
+            var wordData = event.currentTarget.dataset.data;
+            if(!wordData.word){
+                return;
+            }
+            var index = event.currentTarget.dataset.index;
+            var userAnswerX = this.data.userAnswer;
+            userAnswerX[index].word = '';
+            this.setData({
+                userAnswer:userAnswerX
+            })
+            this.backShow(wordData.wordIndex);
+        },
+        backShow:function(wordIndex){
+            var words = this.data.words;
+            words[wordIndex].isSelect = 0
+            this.setData({
+                words:words
+            })
+        },
+        selectClick:function(event){
+            var optionIndex = event.currentTarget.dataset.index;
+            var type = event.currentTarget.dataset.type;
+            if(type==1){
+                let option = this.data.option;
+                for(let i = 0;i<option.length;i++){
+                    option[i].isSelect = 0;
+                }
+                option[optionIndex].isSelect = 1;
+                this.setData({
+                    option:option
+                })
+            }else if(type==2){
+                let option = this.data.optionPD;
+                for(let i = 0;i<option.length;i++){
+                    option[i].isSelect = 0;
+                }
+                option[optionIndex].isSelect = 1;
+                this.setData({
+                    optionPD:option
+                })
+                console.log(option)
+            }
+        }
+    },
+    lifetimes:{
+        attached(){
+            console.log(this.data.questType==2)
         }
     }
 })

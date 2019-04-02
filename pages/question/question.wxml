@@ -2,8 +2,8 @@
     <view class="counter">
         <image class="flower" src="../../assets/answer/flower.png"></image>
         <view class="flower-hikari"></view>
-        <view class="sec-counter">120</view>
+        <view class="sec-counter">{{counter}}</view>
     </view>
-      <question-section type="{{questionType}}"></question-section>
-    <button class="btn-next">下一题</button>
+      <question-section wx:if="{{questShow}}" questType="{{questionType}}" th="{{th}}"></question-section>
+    <button class="btn-next" bindtap="questShift">下一题</button>
 </view>
