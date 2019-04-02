@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "question-section":"../../components/question-section/quest"
+    "question-section":"../../components/question-section/quest",
+    "question-end":"../../components/question-end/question-end"
   },
   "backgroundColor": "#dcc8ad"
 }

@@ -1,3 +1,5 @@
 {
-    "usingComponents": {}
+    "usingComponents": {
+        "review-poem":"../../components/review-poem/poem"
+    }
 }
