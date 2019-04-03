@@ -1,21 +1,21 @@
 var timer;
-
+const counterTime = 120;
 Page({
   data:{
     questionType:1,
     th:1,
     questShow:true,
     questTypeArr:[1,2,3],
-    counter:10
+    counter:counterTime
   },
   onLoad:function(){
     this.setCounter();
   },
   setCounter:function(){
     this.setData({
-      counter:10
+      counter:counterTime
     })
-    var counter = 10;
+    var counter = counterTime;
     timer = setInterval(function(){
       if(counter>0){
         counter--;
