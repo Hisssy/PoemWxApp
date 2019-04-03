@@ -1,4 +1,5 @@
 <view class="paper-like main">
+  <image class="tree" src="../../assets/review/tree.png"></image>
   <view class="review">
     <view class="review-wrap">
       <view class="review-title">今日回顾</view>
