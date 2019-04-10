@@ -9,14 +9,14 @@
         <scroll-view scroll-y="true" scroll-with-animation="true" class="scroll-wrap">
             <view class="rank-detail show-scale" wx:for="{{rankData}}" wx:key="{{index}}">
                 <text class="num">{{index}}</text>
-                <image class="head-img"></image>
+                <image src="{{item.wxAvatar}}" class="head-img"></image>
                 <view class="info">
                     <view class="info-left">
-                        <text>{{item.name}}</text>
-                        <text>{{item.xy}}</text>
+                        <text>{{item.wxName}}</text>
+                        <text>{{item.xy | 'xxx'}}</text>
                     </view>
                     <view class="info-right">
-                        <text>积分:{{item.jf}}</text>
+                        <text>积分:{{item.jf | 0}}</text>
                     </view>
                 </view>
             </view>
@@ -28,11 +28,11 @@
                 <image class="head-img"></image>
                 <view class="info">
                     <view class="info-left">
-                        <text>{{selfData.name}}</text>
+                        <text>{{selfData}}</text>
                         <text>{{selfData.xy}}</text>
                     </view>
                     <view class="info-right">
-                        <text>积分:{{selfData.jf}}</text>
+                        <text>积分:{{selfData}}</text>
                     </view>
                 </view>
             </view>
