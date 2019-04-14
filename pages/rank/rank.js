@@ -1,4 +1,5 @@
 // pages/rank/rank.js
+var app = getApp();
 Page({
 
   /**
@@ -30,5 +31,18 @@ Page({
   },
   backToIndex(){
     wx.navigateTo({url:"../index/index"})
+  },
+  getRankData(){
+    wx.request({
+      url:app.globalData.apiURL+'/wxGetRankList',
+      method:"GET",
+      dataType:'json',
+      success:function(data){
+        var rankList = data.rankList;
+        this.setData({
+          rankData:rankList
+        })
+      }.bind(this)
+    })
   }
 })

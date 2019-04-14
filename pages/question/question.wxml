@@ -4,6 +4,6 @@
         <view class="flower-hikari"></view>
         <view class="sec-counter">{{counter}}</view>
     </view>
-      <question-section wx:if="{{questShow}}" questType="{{questionType}}" th="{{th}}"></question-section>
+      <question-section id="questSec" wx:if="{{questShow}}" questType="{{questArr[th-1].questionType}}" th="{{th}}" questData="{{questArr[th-1]}}" bind:addScole="addScole"></question-section>
     <button class="btn-next" bindtap="questShift">下一题</button>
 </view>

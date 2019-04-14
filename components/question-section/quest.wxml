@@ -1,6 +1,6 @@
 <view class="quest">
   <view class="click-word" wx:if="{{questType==1}}">
-    <view class="title">点字成诗（1/3）</view>
+    <view class="title">点字成诗（{{th}}/3）</view>
     <view class="words">
       <view class="word jz" wx:for="{{words}}" wx:key="{{index}}" bindtap="selectWord"  data-index="{{index}}">
         <text wx:if="{{!item.isSelect}}" data-index="{{index}}">{{item.word}}</text>
@@ -13,14 +13,14 @@
     </view>
   </view>
 
-  <view class="select" wx:if="{{questType==2}}">
+  <view class="select" wx:if="{{questType==0}}">
     <view class="title">选择题（{{th}}/4）</view>
     <view class="content">
       <text wx:for="{{aaa}}" wx:key="{{index}}">{{item}}</text>
       <text>（ ）</text>
     </view>
     <view class="option-wrap">
-      <view class="option" wx:for="{{option}}" wx:key="index" bindtap="selectClick" data-index="{{index}}" data-type="1">
+      <view class="option" wx:for="{{questData.questionOption}}" wx:key="index" bindtap="selectClick" data-index="{{index}}" data-type="1">
         <view class="{{item.isSelect?'yes':'no'}} jz">{{item.option}}</view>
         <view>{{item.value}}</view>
       </view>
