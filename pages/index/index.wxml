@@ -18,33 +18,35 @@
         <text>个人信息</text>
         <image class="close-btn" bindtap="closeLoginModal" src="../../assets/cover/close.png"></image>
       </view>
-      <view class="login-input-section">
-        <view class="login-inline">
-          <view class="login-input">
-            <label for="sName">姓名</label>
-            <input name="sName" type='text' placeholder='' />
+      <form bindsubmit="submitUserInfo">
+        <view class="login-input-section">
+          <view class="login-inline">
+            <view class="login-input">
+              <label for="userName">姓名</label>
+              <input name="userName" type='text' placeholder='' />
+            </view>
+            <view class="login-input">
+              <label for="userSex">性别</label>
+              <input name="userSex" type='text' placeholder='' />
+            </view>
           </view>
-          <view class="login-input">
-            <label for="sSex">性别</label>
-            <input name="sSex" type='text' placeholder='' />
+          <view class="login-inline">
+            <view class="login-input">
+              <label for="userCode">学号</label>
+              <input name="userCode" type='text' placeholder='' />
+            </view>
+          </view>
+          <view class="login-inline">
+            <view class="login-input">
+              <label for="userEmail">邮箱</label>
+              <input name="userEmail" type='text' placeholder='' />
+            </view>
           </view>
         </view>
-        <view class="login-inline">
-          <view class="login-input">
-            <label for="sCode">学号</label>
-            <input name="sCode" type='text' placeholder='' />
-          </view>
+        <view class="login-btn-section">
+          <button class="main-btn h login-btn" form-type="submit">保存</button>
         </view>
-        <view class="login-inline">
-          <view class="login-input">
-            <label for="sEmail">邮箱</label>
-            <input name="sEmail" type='text' placeholder='' />
-          </view>
-        </view>
-      </view>
-      <view class="login-btn-section">
-        <button class="main-btn h login-btn"></button>
-      </view>
+      </form>
     </view>
   </popover>
   <popover wx:if="{{isInfoOpen}}">
@@ -65,9 +67,11 @@
         <text class="info-detail-text-item">姓名:{{userName}}</text>
         <text class="info-detail-text-item">学号:{{userCode}}</text>
         <text class="info-detail-text-item">邮箱:{{userEmail}}</text>
-        <text class="info-detail-text-item">性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}</text>
+        <text class="info-detail-text-item">
+          性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}
+        </text>
       </view>
-      <button class="main-btn">保存</button>
+      <button class="main-btn" bindtap="submitUserInfo">保存</button>
     </view>
   </popover>
   <button class="main-btn line h play-btn" bindtap="startGame" open-type="getUserInfo">开始游戏</button>
