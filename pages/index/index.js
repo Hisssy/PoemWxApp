@@ -34,15 +34,40 @@ Page({
       isInfoOpen: true
     })
   },
+  submitUserInfo: function (e) {
+    console.log("FORM:", e.detail.value)
+    wx.request({
+      url: app.globalData.apiURL + "?a=wxSubmitUserInfo",
+      data: e.detail.value,
+      method: "get",
+      success: ret => {
+        console.log(ret.data);
+        if (ret.data.statusCode === 200) {
+          wx.showToast({
+            title: "成功！"
+          })
+        } else {
+          wx.showToast({
+            title: "失败"
+          })
+        }
+      },
+      fail: ret=>{
+        wx.showToast({
+          title: "服务器错误"
+        })
+      }
+    })
+  },
   startGame: function () {
-    console.log("clicked");
-    //if (this.data.hasUserInfo) {
+    if (this.data.hasUserInfo) {
       //start game here
-      wx.navigateTo({url:"../question/question"})
-    //} else {
-    //  this.showLoginModal();
-    //}
-
+      wx.navigateTo({
+        url: "../question/question"
+      })
+    } else {
+      this.showLoginModal();
+    }
   },
   showRank: function () {
     // if(this.data.hasUserInfo){
@@ -56,6 +81,24 @@ Page({
   showReview: function () {
     wx.navigateTo({
       url: "../review/review"
+    })
+  },
+  getUserDetailInfo: function () {
+    wx.request({
+      url: app.globalData.apiURL + "?a=wxGetUserInfo",
+      method: "get",
+      success: ret => {
+        let resp = ret.data;
+        console.log(resp);
+        if (resp.statusCode === 200) {
+          delete resp.statusCode;
+          this.setData(resp);
+        } else {
+          wx.showToast({
+            title: "网络错误"
+          })
+        }
+      }
     })
   },
   onLoad: function () {
@@ -84,6 +127,11 @@ Page({
           })
         }
       })
+    }
+
+    //页面数据加载
+    if (!this.data.hasUserInfo) {
+      this.getUserDetailInfo();
     }
   },
   getUserInfo: function (e) {

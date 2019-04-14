@@ -6,16 +6,13 @@
   display: flex;
   width: 82vw;
   height: 54.873vh;
-  margin: 0 auto;
   align-items: center;
   flex-direction: column;
   background-color: #fff3e4;
   z-index: 1;
   box-shadow: 2.667vw 2.667vw 2.667vw 0px rgba(8, 5, 0, 0.4);
-  /* display: none; */
   align-self: flex-end;
   margin-bottom: 18.291vh;
-  justify-content: space-between;
 }
 
 .login-header {
@@ -56,6 +53,7 @@
 .login-btn-section {
   height: 30vw;
   display: flex;
+  align-items: center;
 }
 
 .main-btn.h {
