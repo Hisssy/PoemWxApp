@@ -3,9 +3,34 @@
 // 判断LocalStorage中的userName和avatar与微信API提供的是否一致，若不一致重新提交
 // 初次登录时保存name和avatar
 // Update UserInfo 方法
-
+let Fly = require("flyio")
 App({
+  fly: new Fly,
   onLaunch: function () {
+    this.fly.config.baseURL = "https://www.danthology.cn/"
+    // 拦截请求
+    this.fly.interceptors.request.use((config, promise) => {
+      // 添加 Cookie
+      config.headers = this.globalData.header;
+      return config;
+    });
+
+    // 拦截响应
+    this.fly.interceptors.response.use(
+      (response) => {
+        if (response.data.statusCode === 201){
+          this.doLogin();
+        }
+      },
+      (err) => {
+        console.log(err);
+        wx.showToast({
+          icon: "none",
+          title: "网络错误"
+        })
+      }
+    )
+
     //处理登录态信息
     function login() {
       if (wx.getStorageSync('skey')) {
@@ -30,28 +55,27 @@ App({
     }
 
     // 登录
-    var that = this;
+    let that = this;
+
     function doLogin() {
       wx.login({
         success: res => {
           if (res.code) {
-            wx.request({
-              url: that.globalData.apiURL + '?a=login',
-              data: Object.assign(res, that.globalData.userInfo),
-              method: "get",
-              // 储存 skey 到 localStorage
-              success(resp) {
+            that.fly.request(that.globalData.apiURL + 'wxLogin', Object.assign(res, that.globalData.userInfo))
+              .then(resp => {
+                that.globalData.userStatus = resp.data.statusCode;
                 wx.setStorageSync('skey', resp.data.skey);
-              }
-            })
+              })
+              .catch(err => {})
           } else {
             console.log(res)
           }
         }
       })
     }
-
-    console.log("skey:",wx.getStorageSync("skey"))
+    // 调试用
+    // wx.removeStorageSync("skey");
+    console.log("skey:", wx.getStorageSync("skey"))
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -74,8 +98,14 @@ App({
       }
     })
   },
+
   globalData: {
+    header: {
+      'content-type': 'application/x-www-form-urlencoded',
+      'cookie': 'skey=' + wx.getStorageSync("skey") //读取cookie
+    },
+    userStatus: 200,
     userInfo: null,
-    apiURL: ''
+    apiURL: 'http://www.danthology.cn/ezhan/api/'
   }
 })

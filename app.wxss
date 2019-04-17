@@ -29,8 +29,33 @@ button::after {
   color: #f4f4f4;
   border-radius: 0;
   box-shadow: 0vw 0.8vw 0.8vw 0vw rgba(70, 6, 6, 0.4);
+  animation: 1s show_scale ease-out backwards;
 }
 
 .main-btn.line {
   background: linear-gradient(90deg, #a42d2d 5%, #fff 5%, #fff 6%, #a42d2d 6%, #a42d2d 94%, #fff 94%, #fff 95%, #a42d2d 95%);
+}
+
+@keyframes fadeinT {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes show_scale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
