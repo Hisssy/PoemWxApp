@@ -6,19 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dateTime:'',
-    rankData:[
-      {
-        name:'xxx',
-        xy:'xxx',
-        jf:'xxx'
-      }
-    ],
-    selfData:{
-      name:'xxx',
-      xy:'xxx',
-      jf:'xxx'
-    }
+    dateTime: '',
+    rankData: [{
+      wxUserName: 'xxx',
+      wxAvatar: '',
+      userCollege: 'xxx',
+      userScore: 114
+    }, {
+      wxUserName: 'xxx',
+      wxAvatar: '',
+      userCollege: 'xxx',
+      userScore: 114
+    }],
+    selfData: {
+      wxUserName: 'xxx',
+      userCollege: 'xxx',
+      userScore: 115,
+      rank: 1
+    },
   },
 
   /**
@@ -26,23 +31,22 @@ Page({
    */
   onLoad: function (options) {
     var date = new Date();
-    var dateStr = date.getMonth()+1 + '月' +date.getDate() + '日';
-    this.setData({dateTime:dateStr})
-  },
-  backToIndex(){
-    wx.navigateTo({url:"../index/index"})
-  },
-  getRankData(){
-    wx.request({
-      url:app.globalData.apiURL+'/wxGetRankList',
-      method:"GET",
-      dataType:'json',
-      success:function(data){
-        var rankList = data.rankList;
-        this.setData({
-          rankData:rankList
-        })
-      }.bind(this)
+    var dateStr = date.getMonth() + 1 + '月' + date.getDate() + '日';
+    this.setData({
+      dateTime: dateStr
     })
+    app.fly.request(app.globalData.apiURL + 'wxGetRankList')
+      .then(ret => {
+        let rankData = ret.data.rankData;
+        let selfData = ret.data.selfData;
+        this.setData({
+          rankData: rankData,
+          selfData: selfData
+        })
+      })
+      .catch(err => {});
+  },
+  backToIndex() {
+    wx.navigateBack();
   }
 })

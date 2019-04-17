@@ -71,7 +71,9 @@
           性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}
         </text>
       </view>
-      <button class="main-btn" bindtap="submitUserInfo">保存</button>
+      <view class="main-btn-section">
+        <button class="main-btn" bindtap="submitUserInfo">保存</button>
+      </view>
     </view>
   </popover>
   <button class="main-btn line h play-btn" bindtap="startGame" open-type="getUserInfo">开始游戏</button>

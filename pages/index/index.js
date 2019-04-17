@@ -30,37 +30,35 @@ Page({
     })
   },
   showInfoModal: function () {
-    this.setData({
-      isInfoOpen: true
-    })
+    if (this.data.hasUserInfo && app.globalData.userStatus === 200) {
+      this.setData({
+        isInfoOpen: true
+      })
+    } else {
+      this.showLoginModal();
+    }
   },
   submitUserInfo: function (e) {
     console.log("FORM:", e.detail.value)
-    wx.request({
-      url: app.globalData.apiURL + "?a=wxSubmitUserInfo",
-      data: e.detail.value,
-      method: "get",
-      success: ret => {
+    app.fly.request(app.globalData.apiURL + "wxSubmitUserInfo", e.detail.value)
+      .then(ret => {
         console.log(ret.data);
         if (ret.data.statusCode === 200) {
           wx.showToast({
             title: "成功！"
-          })
+          });
+          this.getUserDetailInfo();
         } else {
           wx.showToast({
             title: "失败"
           })
         }
-      },
-      fail: ret=>{
-        wx.showToast({
-          title: "服务器错误"
-        })
-      }
-    })
+      })
+      .catch(error => {})
   },
   startGame: function () {
-    if (this.data.hasUserInfo) {
+    console.log("用户状态：" + app.globalData.userStatus);
+    if (this.data.hasUserInfo && app.globalData.userStatus === 200) {
       //start game here
       wx.navigateTo({
         url: "../question/question"
@@ -70,36 +68,38 @@ Page({
     }
   },
   showRank: function () {
-    // if(this.data.hasUserInfo){
-    wx.navigateTo({
-      url: "../rank/rank"
-    })
-    // } else {
-    // this.showLoginModal();
-    // }
+    if (this.data.hasUserInfo && app.globalData.userStatus === 200) {
+      wx.navigateTo({
+        url: "../rank/rank"
+      })
+    } else {
+      this.showLoginModal();
+    }
   },
   showReview: function () {
-    wx.navigateTo({
-      url: "../review/review"
-    })
+    if (this.data.hasUserInfo && app.globalData.userStatus === 200) {
+      wx.navigateTo({
+        url: "../review/review"
+      })
+    } else {
+      this.showLoginModal();
+    }
   },
   getUserDetailInfo: function () {
-    wx.request({
-      url: app.globalData.apiURL + "?a=wxGetUserInfo",
-      method: "get",
-      success: ret => {
+    app.fly.get(app.globalData.apiURL + "wxGetUserInfo")
+      .then(ret => {
         let resp = ret.data;
-        console.log(resp);
         if (resp.statusCode === 200) {
           delete resp.statusCode;
           this.setData(resp);
         } else {
           wx.showToast({
-            title: "网络错误"
+            icon: "none",
+            title: "请求失败"
           })
         }
-      }
-    })
+      })
+      .catch(err => {})
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -135,7 +135,6 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

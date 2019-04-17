@@ -12,11 +12,11 @@
                 <image src="{{item.wxAvatar}}" class="head-img"></image>
                 <view class="info">
                     <view class="info-left">
-                        <text>{{item.wxName}}</text>
-                        <text>{{item.xy | 'xxx'}}</text>
+                        <text>{{item.wxUserName}}</text>
+                        <text>{{item.userCollege | 'xxx'}}</text>
                     </view>
                     <view class="info-right">
-                        <text>积分:{{item.jf | 0}}</text>
+                        <text>积分:{{item.userScore | 0}}</text>
                     </view>
                 </view>
             </view>
@@ -24,15 +24,15 @@
         <view class="self-rank show-scale">
             <text>我的排名</text>
             <view class="rank-detail">
-                <text class="num">1</text>
-                <image class="head-img"></image>
+                <text class="num">{{selfData.rank}}</text>
+                <image class="head-img" src="{{selfData.wxAvatar}}"></image>
                 <view class="info">
                     <view class="info-left">
-                        <text>{{selfData}}</text>
-                        <text>{{selfData.xy}}</text>
+                        <text>{{selfData.wxUsername}}</text>
+                        <text>{{selfData.userCollege}}</text>
                     </view>
                     <view class="info-right">
-                        <text>积分:{{selfData}}</text>
+                        <text>积分:{{selfData.userScore}}</text>
                     </view>
                 </view>
             </view>

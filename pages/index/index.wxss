@@ -195,6 +195,7 @@
   height: 23.673vw;
   left: 12.551vw;
   top: 7.486vh;
+  animation: fadeinT 1s ease-out backwards;
 }
 
 .title-section image:nth-child(1) {
@@ -243,9 +244,11 @@
   height: 37.781vh;
   background-color: #faefe9;
   box-shadow: 2.64vw 2.64vw 2.667vw 0vw rgba(8, 5, 0, 0.4);
+  z-index: 1;
+  animation: fadeinT 1s ease-out;
 }
 
-.info-section .main-btn {
+.main-btn-section {
   transform: translateY(50%);
 }
 

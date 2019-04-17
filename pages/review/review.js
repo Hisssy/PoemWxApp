@@ -21,12 +21,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: app.globalData.apiURL + "?a=wxGetDailyReview",
-      method: "get",
-      success: ret => {
+    app.fly.request(app.globalData.apiURL + "wxGetDailyReview")
+      .then(ret => {
         let resp = ret.data;
-        console.log(resp);
         if (resp.statusCode === 200) {
           this.setData({
             reviewPoem: resp.content
@@ -36,13 +33,8 @@ Page({
             title: "失败"
           })
         }
-      },
-      fail: ret => {
-        wx.showToast({
-          title: "服务器错误"
-        })
-      }
-    })
+      })
+      .catch(err => {})
   },
   backToIndex() {
     wx.navigateBack();
