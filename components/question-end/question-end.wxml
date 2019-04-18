@@ -1,2 +1,7 @@
 <!--components/question-end.wxml-->
-<text>components/question-end.wxml</text>
+<view class="quest_end">
+  <text>components/question-end.wxml</text>
+  <text>score:{{score}}</text>
+</view>
+
+

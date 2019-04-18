@@ -1,26 +1,20 @@
 const app = getApp();
 Component({
   data: {
-    poemTitle: "",
-    poemContent: "",
-    optionA: "",
-    optionB: "",
-    optionC: "",
-    optionD: "",
-    words: [
-      {word: '以'}, {word: '衣'}, {word: '花'}, {word: '云'}, {word: '裳'}, {word: '像'}, {word: '容'}, {word: '想'}, {word: '想'}],
-    userAnswer: [{}, {}, {}, {}, {}, {}, {}],
+    words: [],
+    userAnswer: [],
     option: [
-      {option: 'A', value: '一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'},
-      {option: 'B', value: '一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'},
-      {option: 'C', value: '一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'},
-      {option: 'D', value: '一枝红艳露凝香，云雨巫山枉断肠。借问汉宫,谁得似，可怜飞燕倚新妆。'}
+      {option: 'A', value: ''},
+      {option: 'B', value: ''},
+      {option: 'C', value: ''},
+      {option: 'D', value: ''}
     ],
     optionPD: [
       {className: 'icon-cha'},
       {className: 'icon-gou'}
     ],
-    aaa: ['清平调', '云想衣裳花想容，春风拂槛露华浓。', '若非群玉山头见，会向瑶台月下逢。']
+    description: '',
+    optionIndex:-1
   },
   properties: {
     questType: {
@@ -39,7 +33,6 @@ Component({
     selectWord: function (event) {
       var wordIndex = event.currentTarget.dataset.index;
       var words = this.data.words;
-
       var userAnswerX = this.data.userAnswer;
       var answerIndex = -1;
       for (let i in userAnswerX) {
@@ -86,15 +79,16 @@ Component({
     },
     selectClick: function (event) {
       var optionIndex = event.currentTarget.dataset.index;
+      this.data.optionIndex = optionIndex;
       var type = event.currentTarget.dataset.type;
       if (type == 1) {
-        let option = this.data.questData.questionOption;
+        let option = this.data.option;
         for (let i = 0; i < option.length; i++) {
           option[i].isSelect = 0;
         }
         option[optionIndex].isSelect = 1;
         this.setData({
-          'questData.questionOption': option
+          option:option
         })
       } else if (type == 2) {
         let option = this.data.optionPD;
@@ -108,22 +102,72 @@ Component({
         console.log(option)
       }
     },
-    checkAnswer(){
-      wx.request({
-        url:app.globalData.apiURL+'/globalData',
-        method:'GET',
-        data:{
-          questionSessId:'',
-          answer:''
-        },
-        success:function(data){
-          if(data.msg){
-            return 1;
-          }else{
+    checkAnswer() {
+      var questionType = this.data.questData.questionType;
+      var answer='';
+      switch (questionType){
+        case 0:
+          var optionIndex = this.data.optionIndex;
+          if(optionIndex==-1){
             return 0;
+          }else{
+            answer = this.data.option[optionIndex].value;
           }
+          break;
+        case 1:
+          for(let i=0;i<this.data.userAnswer.length;i++){
+            if(this.data.userAnswer[i].word==undefined || this.data.userAnswer[i].word==''){
+              return 0;
+            }
+            answer+=this.data.userAnswer[i].word;
+          }
+          break;
+      }
+      console.log(answer)
+      this.request(that.globalData.apiURL + 'wxSubmitAnswer', {
+        questionSessId:this.data.questData.questionSessId,
+        answer:answer
+      }).then((res)=>{
+        if(res.statusCode==200){
+          wx.showToast({
+            icon: "none",
+            title: res.msg
+          })
+          return res.answerCode
         }
-      })
+      }).catch(()=>{})
+    }
+  },
+  lifetimes:{
+    ready(){
+      var Data = this.data.questData;
+      var questType = Data.questionType;
+      switch(questType){
+        case 0:
+          let option = this.data.option;
+          for(let i in Data.questionOption){
+            option[i].value = Data.questionOption[i];
+          }
+          this.setData({
+            option:option,
+            description:Data.questionDescription
+          })
+          break;
+        case 1:
+          let words = this.data.words;
+          let userAnswer = this.data.userAnswer;
+          for(let i in Data.questionContent){
+            words.push({'word':Data.questionContent[i]})
+            if(i<Data.questionsize){
+              userAnswer.push({})
+            }
+          }
+          this.setData({
+            words:words,
+            userAnswer:userAnswer
+          })
+          break;
+      }
     }
   }
 })
