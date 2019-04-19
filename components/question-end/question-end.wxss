@@ -1,1 +1,7 @@
 /* components/question-end.wxss */
+.quest_end {
+    padding:100px;
+}
+text {
+    display: block;
+}
