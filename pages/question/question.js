@@ -57,7 +57,7 @@ Page({
   },
   getQuestion(){
     var _this = this;
-    this.fly.request(that.globalData.apiURL + 'wxGetQuestions')
+    app.fly.request(that.globalData.apiURL + 'wxGetQuestions')
         .then(data => {
           if(data.statusCode == 301){
             var content = data.content;

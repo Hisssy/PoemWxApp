@@ -124,7 +124,7 @@ Component({
           break;
       }
       console.log(answer)
-      this.request(that.globalData.apiURL + 'wxSubmitAnswer', {
+      app.fly.request(that.globalData.apiURL + 'wxSubmitAnswer', {
         questionSessId:this.data.questData.questionSessId,
         answer:answer
       }).then((res)=>{
