@@ -19,7 +19,7 @@ App({
     this.fly.interceptors.response.use(
       (response) => {
         if (response.data.statusCode === 201){
-          this.doLogin();
+          doLogin();
         }
       },
       (err) => {
@@ -38,12 +38,12 @@ App({
         wx.checkSession({
           // session_key 未过期
           success: function () {
-            console.log("Session 未过期");
+            console.log("Wechat Session Key未过期");
             // 业务逻辑处理
           },
           // session_key 过期，重新登录
           fail: function () {
-            console.log("Session 已过期");
+            console.log("Wechat Session Key已过期");
             doLogin();
           }
         });

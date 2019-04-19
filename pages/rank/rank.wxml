@@ -1,6 +1,6 @@
-<!--pages/rank/rank.wxml-->
+<!-- pages/rank/rank.wxml -->
 <view id="rank">
-    <image class="rankBg" src="../../assets/rank/bg.jpg"/>
+    <image class="rankBg" src="../../assets/rank/bg.jpg" />
     <view class="main">
         <view>
             <text class="title">排行榜</text>
@@ -8,7 +8,7 @@
         </view>
         <scroll-view scroll-y="true" scroll-with-animation="true" class="scroll-wrap">
             <view class="rank-detail show-scale" wx:for="{{rankData}}" wx:key="{{index}}">
-                <text class="num">{{index}}</text>
+                <text class="num">{{index+1}}</text>
                 <image src="{{item.wxAvatar}}" class="head-img"></image>
                 <view class="info">
                     <view class="info-left">
@@ -28,7 +28,7 @@
                 <image class="head-img" src="{{selfData.wxAvatar}}"></image>
                 <view class="info">
                     <view class="info-left">
-                        <text>{{selfData.wxUsername}}</text>
+                        <text>{{selfData.wxUserName}}</text>
                         <text>{{selfData.userCollege}}</text>
                     </view>
                     <view class="info-right">
