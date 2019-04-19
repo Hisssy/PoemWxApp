@@ -10,7 +10,8 @@ Page({
     questShow:true,
     questArr:[],
     counter:counterTime,
-    scole:0
+    score:0,
+    isEnd:false
   },
   onLoad:function(){
     this.getQuestion();
@@ -33,12 +34,14 @@ Page({
   },
   questShift:function(){
     var answer = this.selectComponent("#questSec").checkAnswer();
-    this.addScole(answer);
+    this.addScore(answer);
 
     clearInterval(timer);
 
     if(this.data.th==TS){
-      wx.navigateTo();
+      this.setData({
+        isEnd:true
+      })
       return;
     }
 
@@ -53,23 +56,25 @@ Page({
     this.setCounter();
   },
   getQuestion(){
-    wx.request({
-      url:app.globalData.apiURL+'/wxGetQuestions',
-      method:'GET',
-      header:{},
-      dataType:'json',
-      success:function(data){
-        TS = data.length;
-        this.setData({
-          questArr:data
-        })
-        this.setCounter();
-      }.bind(this)
-    })
+    var _this = this;
+    this.fly.request(that.globalData.apiURL + 'wxGetQuestions')
+        .then(data => {
+          if(data.statusCode == 301){
+            var content = data.content;
+            TS = content.length;
+            _this.setData({
+              questArr:content
+            })
+            this.setCounter();
+          }
+        }).catch(err => {})
   },
-  addScole(answer){
+  addScore(answer){
     if(answer==1){
-      this.data.scole++;
+      let score = this.data.score+1;
+      this.setData({
+        score:score
+      })
     }
   }
 })
