@@ -18,7 +18,7 @@ App({
     // 拦截响应
     this.fly.interceptors.response.use(
       (response) => {
-        if (response.data.statusCode === 201){
+        if (response.data.statusCode === 201) {
           doLogin();
         }
       },
@@ -65,6 +65,7 @@ App({
               .then(resp => {
                 that.globalData.userStatus = resp.data.statusCode;
                 wx.setStorageSync('skey', resp.data.skey);
+                that.globalData.header['cookie'] = resp.data.skey;
               })
               .catch(err => {})
           } else {

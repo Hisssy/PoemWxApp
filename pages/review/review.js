@@ -26,7 +26,8 @@ Page({
         let resp = ret.data;
         if (resp.statusCode === 200) {
           this.setData({
-            reviewPoem: resp.content
+            reviewPoem: resp.content || [{
+              poemTitle: "今天还没有答题"}]
           });
         } else {
           wx.showToast({
