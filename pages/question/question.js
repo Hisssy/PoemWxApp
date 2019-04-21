@@ -57,16 +57,15 @@ Page({
   },
   getQuestion(){
     var _this = this;
-    app.fly.request(that.globalData.apiURL + 'wxGetQuestions')
+    app.fly.request(app.globalData.apiURL + 'wxGetQuestions')
         .then(data => {
-          if(data.statusCode == 301){
-            var content = data.content;
-            TS = content.length;
-            _this.setData({
-              questArr:content
-            })
-            this.setCounter();
-          }
+          console.log(data)
+          var content = data.content;
+          TS = content.length;
+          _this.setData({
+            questArr:content
+          })
+          this.setCounter();
         }).catch(err => {})
   },
   addScore(answer){
