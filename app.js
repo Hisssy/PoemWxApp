@@ -65,7 +65,7 @@ App({
               .then(resp => {
                 that.globalData.userStatus = resp.data.statusCode;
                 wx.setStorageSync('skey', resp.data.skey);
-                that.globalData.header['cookie'] = resp.data.skey;
+                that.globalData.header.cookie = 'skey=' + resp.data.skey;
               })
               .catch(err => {})
           } else {
