@@ -86,3 +86,16 @@
 question-section{
   margin-top:3.943vh;
 }
+
+.btn-next {
+  animation: 0.5s show forwards;
+}
+
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

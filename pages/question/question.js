@@ -1,17 +1,16 @@
 var timer;
 const counterTime = 120;
 const app = getApp();
-var TS;
 
 Page({
   data:{
     questionType:1,
     th:1,
-    questShow:true,
-    questArr:[],
+    questContent:{},
     counter:counterTime,
     score:0,
-    isEnd:false
+    isEnd:false,
+    isLoad:false
   },
   onLoad:function(){
     this.getQuestion();
@@ -22,7 +21,7 @@ Page({
     })
     var counter = counterTime;
     timer = setInterval(function(){
-      if(counter>0){
+      if(counter>1){
         counter--;
         this.setData({
           counter:counter
@@ -34,38 +33,38 @@ Page({
   },
   questShift:function(){
     var answer = this.selectComponent("#questSec").checkAnswer();
-    this.addScore(answer);
-
-    clearInterval(timer);
-
-    if(this.data.th==TS){
-      this.setData({
-        isEnd:true
+    var _this = this;
+    answer.then((res)=>{
+      _this.addScore(res);
+      _this.getQuestion();
+      clearInterval(timer);
+      _this.setData({
+        questionType:this.data.questContent.questionType,
+        th:this.data.th+1,
+        isLoad:false
       })
-      return;
-    }
-
-    this.setData({
-      questShow:false,
-      questionType:this.data.questArr[this.data.th],
-      th:this.data.th+1
+      _this.setCounter();
     })
-    this.setData({
-      questShow:true
-    })
-    this.setCounter();
   },
   getQuestion(){
     var _this = this;
     app.fly.request(app.globalData.apiURL + 'wxGetQuestions')
         .then(data => {
-          console.log(data)
-          var content = data.content;
-          TS = content.length;
-          _this.setData({
-            questArr:content
-          })
-          this.setCounter();
+          if(data.data.statusCode==301){
+            _this.setData({
+              isEnd:true
+            })
+          }else if(data.data.statusCode==302) {
+            _this.getQuestion();
+          }else{
+            var content = data.data.content;
+            _this.setData({
+              questContent:content,
+              isLoad:true
+            })
+            clearInterval(timer);
+            this.setCounter();
+          }
         }).catch(err => {})
   },
   addScore(answer){
@@ -75,5 +74,6 @@ Page({
         score:score
       })
     }
+    console.log("score:"+this.data.score)
   }
 })
