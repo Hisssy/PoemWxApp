@@ -124,18 +124,21 @@ Component({
           break;
       }
       console.log(answer)
-      app.fly.request(that.globalData.apiURL + 'wxSubmitAnswer', {
-        questionSessId:this.data.questData.questionSessId,
-        answer:answer
-      }).then((res)=>{
-        if(res.statusCode==200){
+      return new Promise((resolve,reject)=>{
+        app.fly.request(app.globalData.apiURL + 'wxSubmitAnswer', {
+          questionSessId:this.data.questData.questionSessId,
+          answer:answer
+        }).then((res)=>{
           wx.showToast({
             icon: "none",
-            title: res.msg
+            title: res.data.msg,
+            duration:1000
           })
-          return res.answerCode
-        }
-      }).catch(()=>{})
+          setTimeout(function(){
+            resolve(res.data.answerCode)
+          },1000)
+        }).catch(()=>{})
+      })
     }
   },
   lifetimes:{

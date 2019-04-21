@@ -4,7 +4,7 @@
         <view class="flower-hikari"></view>
         <view class="sec-counter">{{counter}}</view>
     </view>
-      <question-section wx-if="{{!isEnd}}" id="questSec" wx:if="{{questShow}}" questType="{{questArr[th-1].questionType}}" th="{{th}}" questData="{{questArr[th-1]}}" bind:addScole="addScole"></question-section>
-    <button wx-if="{{!isEnd}}" class="btn-next" bindtap="questShift">下一题</button>
+      <question-section wx-if="{{isLoad}}" v-show="{{!isEnd}}" id="questSec" questType="{{questContent.questionType}}" th="{{th}}" questData="{{questContent}}" bind:addScole="addScole"></question-section>
+    <button wx-if="{{isLoad}}" wx-show="{{!isEnd}}" class="btn-next" bindtap="questShift">下一题</button>
     <question-end wx-if="{{isEnd}}" score="{{score}}"></question-end>
 </view>
