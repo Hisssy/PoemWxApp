@@ -109,7 +109,11 @@ Component({
         case 0:
           var optionIndex = this.data.optionIndex;
           if(optionIndex==-1){
-            return 0;
+            return new Promise((resolve,reject)=>{
+              setTimeout(function(){
+                resolve(0)
+              },1000)
+            });
           }else{
             answer = this.data.option[optionIndex].value;
           }
@@ -117,7 +121,11 @@ Component({
         case 1:
           for(let i=0;i<this.data.userAnswer.length;i++){
             if(this.data.userAnswer[i].word==undefined || this.data.userAnswer[i].word==''){
-              return 0;
+              return new Promise((resolve,reject)=>{
+                setTimeout(function(){
+                  resolve(0)
+                },1000)
+              });
             }
             answer+=this.data.userAnswer[i].word;
           }
