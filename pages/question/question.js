@@ -1,5 +1,5 @@
 var timer;
-const counterTime = 120;
+const counterTime = 5;
 const app = getApp();
 
 Page({
@@ -38,13 +38,11 @@ Page({
     answer.then((res)=>{
       _this.addScore(res);
       _this.getQuestion();
-      clearInterval(timer);
       _this.setData({
         questionType:this.data.questContent.questionType,
         th:this.data.th+1,
         isLoad:false
       })
-      _this.setCounter();
     })
   },
   getQuestion(){
@@ -63,6 +61,7 @@ Page({
               questContent:content,
               isLoad:true
             })
+            clearInterval(timer);
             this.setCounter();
           }
         }).catch(err => {})
