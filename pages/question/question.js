@@ -21,12 +21,13 @@ Page({
     })
     var counter = counterTime;
     timer = setInterval(function(){
-      if(counter>1){
+      if(counter>0){
         counter--;
         this.setData({
           counter:counter
         })
       }else{
+        clearInterval(timer);
         this.questShift();
       }
     }.bind(this),1000)
@@ -62,7 +63,6 @@ Page({
               questContent:content,
               isLoad:true
             })
-            clearInterval(timer);
             this.setCounter();
           }
         }).catch(err => {})

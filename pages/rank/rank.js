@@ -7,23 +7,8 @@ Page({
    */
   data: {
     dateTime: '',
-    rankData: [{
-      wxUserName: 'xxx',
-      wxAvatar: '',
-      userCollege: 'xxx',
-      userScore: 114
-    }, {
-      wxUserName: 'xxx',
-      wxAvatar: '',
-      userCollege: 'xxx',
-      userScore: 114
-    }],
-    selfData: {
-      wxUserName: 'xxx',
-      userCollege: 'xxx',
-      userScore: 115,
-      rank: 1
-    },
+    rankData: [],
+    selfData: {},
   },
 
   /**
