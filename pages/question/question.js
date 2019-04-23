@@ -1,5 +1,5 @@
 var timer;
-const counterTime = 5;
+const counterTime = 120;
 const app = getApp();
 
 Page({
