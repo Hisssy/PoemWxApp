@@ -9,6 +9,7 @@ Page({
     questContent:{},
     counter:counterTime,
     score:0,
+    useTime:0,
     isEnd:false,
     isLoad:false,
     isClick:false
@@ -21,13 +22,18 @@ Page({
       counter:counterTime
     })
     var counter = counterTime;
+    var _this = this;
     timer = setInterval(function(){
       if(counter>0){
         counter--;
+        _this.data.useTime++;
         this.setData({
           counter:counter
         })
       }else{
+        this.setData({
+          useTime:_this.data.useTime
+        })
         clearInterval(timer);
         this.questShift();
       }
@@ -80,5 +86,6 @@ Page({
       })
     }
     console.log("score:"+this.data.score)
+    console.log("useTime"+this.data.useTime)
   }
 })
