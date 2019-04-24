@@ -10,7 +10,8 @@ Page({
     counter:counterTime,
     score:0,
     isEnd:false,
-    isLoad:false
+    isLoad:false,
+    isClick:false
   },
   onLoad:function(){
     this.getQuestion();
@@ -33,6 +34,10 @@ Page({
     }.bind(this),1000)
   },
   questShift:function(){
+    if(this.data.isClick){
+      return;
+    }
+    this.data.isClick = true;
     var answer = this.selectComponent("#questSec").checkAnswer();
     var _this = this;
     answer.then((res)=>{
@@ -57,6 +62,7 @@ Page({
             _this.getQuestion();
           }else{
             var content = data.data.content;
+            _this.data.isClick = false;
             _this.setData({
               questContent:content,
               isLoad:true
