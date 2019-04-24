@@ -5,11 +5,11 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    userCode: "70122222222",
-    userEmail: "foo@bar.foo",
-    userName: "Xxx",
-    userScore: 514,
-    userQuesCnt: 114,
+    userCode: "",
+    userEmail: "",
+    userName: "",
+    userScore: 0,
+    userQuesCnt: 0,
     isLoginOpen: false,
     isInfoOpen: false,
   },
@@ -39,7 +39,6 @@ Page({
     }
   },
   submitUserInfo: function (e) {
-    console.log("FORM:", e.detail.value)
     app.fly.request(app.globalData.apiURL + "wxSubmitUserInfo", e.detail.value)
       .then(ret => {
         console.log(ret.data);
@@ -48,6 +47,7 @@ Page({
             title: "成功！"
           });
           this.getUserDetailInfo();
+          this.closeLoginModal();
         } else {
           wx.showToast({
             title: "失败"
