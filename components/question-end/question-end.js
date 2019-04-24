@@ -4,12 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    score:{
-      type:Number,
-      default:0
+    score: {
+      type: Number,
+      default: 0
     },
-    useTime:{
-      type:Number
+    useTime: {
+      type: Number
+    },
+    avatarUrl: {
+      type: String
     }
   },
 
@@ -17,10 +20,15 @@ Component({
    * 组件的初始数据
    */
   data: {
-      
+
   },
 
   methods: {
-
+    backToIndex: () => {
+      wx.navigateBack();
+    },
+    naviToReview: () => {
+      wx.navigateTo({url:"../review/review"});
+    }
   }
 })

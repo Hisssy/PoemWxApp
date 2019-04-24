@@ -53,17 +53,20 @@ text {
     justify-content: center;
 }
 
-.share-btn-section{
+.share-btn-section {
     height: 20vh;
 }
-.avatar-outline{
+
+.avatar-outline {
     width: 22vw;
     height: 22vw;
     border: solid .7574vw #701322;
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
     background-color: white;
 }
 
-.head-section{
+.head-section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
