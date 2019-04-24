@@ -9,10 +9,16 @@ Page({
     questContent:{},
     counter:counterTime,
     score:0,
+    useTime:0,
     isEnd:false,
-    isLoad:false
+    isLoad:false,
+    isClick:false,
+    avatarUrl:''
   },
   onLoad:function(){
+    this.setData({
+      avatarUrl:app.globalData.userInfo.avatarUrl
+    })
     this.getQuestion();
   },
   setCounter:function(){
@@ -20,19 +26,28 @@ Page({
       counter:counterTime
     })
     var counter = counterTime;
+    var _this = this;
     timer = setInterval(function(){
       if(counter>0){
         counter--;
+        _this.data.useTime++;
         this.setData({
           counter:counter
         })
       }else{
+        this.setData({
+          useTime:_this.data.useTime
+        })
         clearInterval(timer);
         this.questShift();
       }
     }.bind(this),1000)
   },
   questShift:function(){
+    if(this.data.isClick){
+      return;
+    }
+    this.data.isClick = true;
     var answer = this.selectComponent("#questSec").checkAnswer();
     var _this = this;
     answer.then((res)=>{
@@ -57,6 +72,7 @@ Page({
             _this.getQuestion();
           }else{
             var content = data.data.content;
+            _this.data.isClick = false;
             _this.setData({
               questContent:content,
               isLoad:true
@@ -74,5 +90,6 @@ Page({
       })
     }
     console.log("score:"+this.data.score)
+    console.log("useTime"+this.data.useTime)
   }
 })
