@@ -63,17 +63,17 @@
           <view class="day"></view> -->
         </view>
       </view>
-      <view class="info-detail">
-        <text class="info-detail-text-item">姓名:{{userName}}</text>
-        <text class="info-detail-text-item">学号:{{userCode}}</text>
-        <text class="info-detail-text-item">邮箱:{{userEmail}}</text>
-        <text class="info-detail-text-item">
-          性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}
-        </text>
-      </view>
-      <view class="main-btn-section">
-        <button class="main-btn" bindtap="submitUserInfo">保存</button>
-      </view>
+        <view class="info-detail">
+          <text class="info-detail-text-item">姓名:{{userName}}</text>
+          <text class="info-detail-text-item">学号:{{userCode}}</text>
+          <text class="info-detail-text-item">邮箱:{{userEmail}}</text>
+          <text class="info-detail-text-item">
+            性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}
+          </text>
+        </view>
+        <view class="main-btn-section">
+          <button class="main-btn" bindtap="showLoginModal">修改</button>
+        </view>
     </view>
   </popover>
   <button class="main-btn line h play-btn" bindtap="startGame" open-type="getUserInfo">开始游戏</button>
