@@ -7,6 +7,9 @@ Component({
     score:{
       type:Number,
       default:0
+    },
+    useTime:{
+      type:Number
     }
   },
 
@@ -14,7 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+      
   },
 
   methods: {
