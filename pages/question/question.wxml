@@ -6,5 +6,5 @@
     </view>
       <question-section wx-if="{{isLoad}}" v-show="{{!isEnd}}" id="questSec" questType="{{questContent.questionType}}" th="{{th}}" questData="{{questContent}}" bind:addScole="addScole"></question-section>
     <button wx-if="{{isLoad}}" wx-show="{{!isEnd}}" class="btn-next" bindtap="questShift">下一题</button>
-    <question-end wx-if="{{isEnd}}" score="{{score}}" useTime="{{useTime}}"></question-end>
+    <question-end wx-if="{{isEnd}}" score="{{score}}" useTime="{{useTime}}" avatarUrl="{{avatarUrl}}"></question-end>
 </view>

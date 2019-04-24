@@ -12,9 +12,13 @@ Page({
     useTime:0,
     isEnd:false,
     isLoad:false,
-    isClick:false
+    isClick:false,
+    avatarUrl:''
   },
   onLoad:function(){
+    this.setData({
+      avatarUrl:app.globalData.userInfo.avatarUrl
+    })
     this.getQuestion();
   },
   setCounter:function(){
