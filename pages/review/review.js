@@ -28,6 +28,6 @@ Page({
       .catch(err => {})
   },
   backToIndex() {
-    wx.navigateBack();
+    wx.redirectTo({url:"../index/index"});
   }
 })
