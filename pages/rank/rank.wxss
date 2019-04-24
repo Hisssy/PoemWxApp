@@ -9,7 +9,7 @@
   z-index: -1;
 }
 .main {
-  margin: 34.69387755vw 7.95918367vw 0 7.95918367vw;
+  margin: 19.42857143vh 7.95918367vw 0 7.95918367vw;
   width: 84.18367347vw;
   height: 66.4vh;
 }
