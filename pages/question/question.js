@@ -8,7 +8,6 @@ Page({
     th:1,
     questContent:{},
     counter:counterTime,
-    score:0,
     useTime:0,
     isEnd:false,
     isLoad:false,
@@ -84,12 +83,15 @@ Page({
   },
   addScore(answer){
     if(answer==1){
-      let score = this.data.score+1;
-      this.setData({
-        score:score
-      })
+      let score = wx.getStorageSync('score');
+      console.log(score)
+      if(score==''){
+        score = 0;
+      }
+      score++;
+      wx.setStorageSync('score',score)
     }
-    console.log("score:"+this.data.score)
+    console.log("score:"+wx.getStorageSync('score'))
     console.log("useTime"+this.data.useTime)
   }
 })
