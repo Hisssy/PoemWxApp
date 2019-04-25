@@ -76,8 +76,8 @@
         </view>
     </view>
   </popover>
-  <button class="main-btn line h play-btn" bindtap="startGame" open-type="getUserInfo">开始游戏</button>
-  <button class="main-btn v rank-btn" bindtap="showRank">排行榜</button>
-  <button class="main-btn v info-btn" bindtap="showInfoModal">个人信息</button>
-  <button class="main-btn v review-btn" bindtap="showReview">今日回顾</button>
+  <button class="main-btn line h play-btn" bindgetuserinfo="startGame" open-type="getUserInfo">开始游戏</button>
+  <button class="main-btn v rank-btn" bindgetuserinfo="showRank" open-type="getUserInfo">排行榜</button>
+  <button class="main-btn v info-btn" bindgetuserinfo="showInfoModal" open-type="getUserInfo">个人信息</button>
+  <button class="main-btn v review-btn" bindgetuserinfo="showReview" open-type="getUserInfo">今日回顾</button>
 </view>

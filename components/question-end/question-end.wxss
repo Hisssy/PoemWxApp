@@ -14,9 +14,7 @@ text {
 
 .notice-text {
     width: 62.87vw;
-    height: 8.426vw;
-    letter-spacing: 0vw;
-    line-height: 4.444vw;
+    line-height: 6vw;
     color: #3f1921;
 }
 

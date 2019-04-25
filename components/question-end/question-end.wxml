@@ -5,14 +5,14 @@
       <view class="avatar-outline" style="background-image:url({{avatarUrl}})">
       </view>
     </view>
-    <text class="notice-text" space="nbsp">恭喜你!在本轮答题中答对{{score}}题，用时{{useTime}}秒，共获得</text>
+    <text class="notice-text" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;恭喜你！在本轮答题中答对{{score}}题，用时{{useTime}}秒，共获得</text>
     <view class="score-section">
       <text class="score-num">{{score*10}}</text>
       <text class="score-text">积分</text>
     </view>
   </view>
   <view class="share-btn-section">
-    <button class="btn-next">炫耀一下</button>
+    <button class="btn-next" open-type="share">炫耀一下</button>
     <button class="btn-next" bindtap="naviToReview">今日回顾</button>
   </view>
   <button class="main-btn line" bindtap="backToIndex">返回首页</button>

@@ -42,29 +42,6 @@ App({
       }
     )
 
-    //处理登录态信息（启动时）
-    function login() {
-      if (wx.getStorageSync('skey')) {
-        // 检查 session_key
-        wx.checkSession({
-          // session_key 未过期
-          success: function () {
-            console.log("Wechat Session Key未过期");
-            // 业务逻辑处理
-          },
-          // session_key 过期，重新登录
-          fail: function () {
-            console.log("Wechat Session Key已过期");
-            doLogin();
-          }
-        });
-      } else {
-        // 初次登录
-        console.log("skey 不存在");
-        doLogin();
-      }
-    }
-
     // 登录
     let that = this;
     // skey续期，重新登录
@@ -74,11 +51,8 @@ App({
           if (ret.code) {
             return that.fly.request(that.globalData.apiURL + 'wxLogin', Object.assign(ret, that.globalData.userInfo))
           } else {
-            reject();
+            reject("微信接口错误");
           }
-        })
-        .catch(err => {
-          console.log("微信接口错误",err);
         })
         .then(resp => {
           that.globalData.userStatus = resp.data.statusCode;
@@ -91,26 +65,6 @@ App({
     // 调试用
     // wx.removeStorageSync("skey");
     console.log("skey:", wx.getStorageSync("skey"))
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo;
-              login();
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
 
   globalData: {

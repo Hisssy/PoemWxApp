@@ -16,10 +16,29 @@ Page({
     score:0,
   },
   onLoad:function(){
+    wx.showShareMenu({
+      withShareTicket: true
+    }); 
     this.setData({
       avatarUrl:app.globalData.userInfo.avatarUrl
     })
     this.getQuestion();
+  }, 
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      console.log(ops.target)
+    }
+    return {
+      title: '#重邮诗词大会(第二届)@重邮微校',
+      path: `pages/index/index`,
+      success: function (res) {
+        console.log("转发成功:" + JSON.stringify(res));
+        var shareTickets = res.shareTickets;
+      },
+      fail: function (res) {
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
   },
   setCounter:function(){
     this.setData({
