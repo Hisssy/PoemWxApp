@@ -5,9 +5,9 @@
       <view class="avatar-outline" style="background-image:url({{avatarUrl}})">
       </view>
     </view>
-    <text class="notice-text" space="nbsp">恭喜你!在本轮答题中答对{{score/10}}题，用时{{useTime}}秒，共获得</text>
+    <text class="notice-text" space="nbsp">恭喜你!在本轮答题中答对{{score}}题，用时{{useTime}}秒，共获得</text>
     <view class="score-section">
-      <text class="score-num">{{score}}</text>
+      <text class="score-num">{{score*10}}</text>
       <text class="score-text">积分</text>
     </view>
   </view>

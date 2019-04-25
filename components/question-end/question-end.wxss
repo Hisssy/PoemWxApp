@@ -9,9 +9,7 @@
 }
 
 text {
-    font-family: SourceHanSansCN-Normal;
     font-size: 3.657vw;
-    color: #3f1921;
 }
 
 .notice-text {
@@ -19,6 +17,7 @@ text {
     height: 8.426vw;
     letter-spacing: 0vw;
     line-height: 4.444vw;
+    color: #3f1921;
 }
 
 .score-section {
@@ -30,6 +29,7 @@ text {
 
 .score-num {
     font-size: 16.254vw;
+    color: #3f1921;
 }
 
 .score-text {
@@ -37,11 +37,11 @@ text {
     right: 0;
     bottom: 0;
     height: 3.519vw;
+    color: #3f1921;
 }
 
 .avatar-section {
     margin: auto;
-    border: solid #701322;
     border-radius: 50%;
     border: solid 2vw #701322;
     background-color: white;
