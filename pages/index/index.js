@@ -61,60 +61,52 @@ Page({
           });
         })
     } else {
-      return new Promise((resolve, reject) => {});
+      return new Promise((resolve, reject) => {
+        resolve()
+      });
     }
   },
   startGame: function (e) {
     // 开始游戏
     if (e.detail.userInfo) {
-      this.setWxUserInfo();
-      if (app.globalData.userStatus === 200) {
-        // Start game here!
-        wx.navigateTo({
-          url: "../question/question"
+      this.setWxUserInfo()
+        .then(ret => {
+          console.log(ret);
+          if (ret === 200 || ret === undefined) {
+            // Start game here!
+            wx.navigateTo({
+              url: "../question/question"
+            })
+          } else {
+            this.showLoginModal();
+          }
         })
-      } else {
-        this.showLoginModal();
-      }
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   showInfoModal: function (e) {
-    // 打开个人信息
-    if (e.detail.userInfo) {
-      this.setWxUserInfo()
-      if (app.globalData.userStatus === 200) {
-        this.setData({
-          isInfoOpen: true
-        })
-      } else {
-        this.showLoginModal();
-      }
+    if (this.data.hasWxUserInfo && app.globalData.userStatus === 200) {
+      this.setData({
+        isInfoOpen: true
+      })
     }
   },
   showRank: function (e) {
     // 打开排行榜
-    if (e.detail.userInfo) {
-      this.setWxUserInfo();
-      if (app.globalData.userStatus === 200) {
-        wx.navigateTo({
-          url: "../rank/rank"
-        })
-      } else {
-        this.showLoginModal();
-      }
+    if (this.data.hasWxUserInfo && app.globalData.userStatus === 200) {
+      wx.navigateTo({
+        url: "../rank/rank"
+      })
     }
   },
   showReview: function (e) {
     // 打开每日回顾页
-    if (e.detail.userInfo) {
-      this.setWxUserInfo();
-      if (app.globalData.userStatus === 200) {
-        wx.navigateTo({
-          url: "../review/review"
-        })
-      } else {
-        this.showLoginModal();
-      }
+    if (this.data.hasWxUserInfo && app.globalData.userStatus === 200) {
+      wx.navigateTo({
+        url: "../review/review"
+      })
     }
   },
   checkSession: function () {
@@ -136,7 +128,6 @@ Page({
     } else {
       // 初次登录
       console.log("skey 不存在");
-      app.doLogin();
     }
   },
   getUserDetailInfo: function () {
@@ -148,13 +139,12 @@ Page({
           delete resp.statusCode;
           this.setData(resp);
         } else {
-          wx.showToast({
-            icon: "none",
-            title: "请求失败"
-          })
+          Promise.reject("服务器接口请求失败")
         }
       })
-      .catch(err => {})
+      .catch(err => {
+        console.log(err)
+      })
   },
   getUserInfoMagical: function () {
     // 获取用户微信信息
@@ -181,22 +171,13 @@ Page({
           this.setData({
             userInfo: res.userInfo
           });
-          return this.getUserDetailInfo();
-        }
-      )
-      .then(
-        () => {
           this.checkSession();
+          return this.getUserDetailInfo();
         }
       )
       .catch(
         err => {
           console.log(err);
-        }
-      )
-      .then(
-        () => {
-          wx.hideLoading();
         }
       )
   },

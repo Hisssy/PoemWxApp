@@ -7,6 +7,26 @@ const promisify = require('/utils/promisify')
 const wxlogin = promisify(wx.login)
 App({
   fly: new Fly,
+  doLogin: function () {
+    return wxlogin()
+      .then(ret => {
+        if (ret.code) {
+          let aFly = new Fly;
+          return aFly.request(this.globalData.apiURL + 'wxLogin', Object.assign(ret, this.globalData.userInfo));
+        } else {
+          reject("微信接口错误");
+        }
+      })
+      .then(resp => {
+        this.globalData.userStatus = resp.data.statusCode;
+        wx.setStorageSync('skey', resp.data.skey);
+        this.globalData.header.cookie = 'skey=' + resp.data.skey;
+        Promise.resolve(this.globalData.userStatus);
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  },
   onLaunch: function () {
     this.fly.config.baseURL = "https://www.danthology.cn/"
     // 拦截请求， 添加 Cookie
@@ -15,25 +35,25 @@ App({
       return config;
     });
 
+    let _this = this;
     // 拦截响应，处理响应码
     this.fly.interceptors.response.use(
-      response => {
-        newFly = new Fly;
+      function (response) {
         // skey 过期处理
-        if (response.data.statusCode === this.globalData.resp.skeyExpire) {
-          return doLogin()
-            .then((p) => {
-              return newFly.request(response.request)
-            });
-            // 后端错误处理
-        } else if (response.data.statusCode === this.globalData.resp.serverError) {
-          return newFly.request(response.request);
+        if (response.data.statusCode === _this.globalData.resp.skeyExpire) {
+          _this.doLogin()
+            .then(() => {
+              return _this.fly.request(response.request);
+            })
+          // 后端错误处理
+        } else if (response.data.statusCode === _this.globalData.resp.serverError) {
+          return _this.fly.request(response.request);
         } else {
           // 正常响应
           return response.data.data;
         }
       },
-      err => {
+      function (err) {
         console.log(err);
         wx.showToast({
           icon: "none",
@@ -41,26 +61,6 @@ App({
         })
       }
     )
-
-    // 登录
-    let that = this;
-    // skey续期，重新登录
-    function doLogin() {
-      return wxlogin()
-        .then(ret => {
-          if (ret.code) {
-            return that.fly.request(that.globalData.apiURL + 'wxLogin', Object.assign(ret, that.globalData.userInfo))
-          } else {
-            reject("微信接口错误");
-          }
-        })
-        .then(resp => {
-          that.globalData.userStatus = resp.data.statusCode;
-          wx.setStorageSync('skey', resp.data.skey);
-          that.globalData.header.cookie = 'skey=' + resp.data.skey;
-        })
-        .catch(err => {});
-    };
 
     // 调试用
     // wx.removeStorageSync("skey");
