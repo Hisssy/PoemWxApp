@@ -3,7 +3,7 @@
   <view class="review">
     <view class="review-wrap">
       <view class="review-title">今日回顾</view>
-      <scroll-view class="review-content">
+      <scroll-view scroll-y="{{true}}" class="review-content">
         <review-poem wx:for="{{reviewPoem}}" wx:key="{{index}}" poemIndex="{{index}}" poemAuthor="{{item.poemAuthor}}" poemBody="{{item.poemBody}}" poemTitle="{{item.poemTitle}}" class=""></review-poem>
       </scroll-view>
     </view>

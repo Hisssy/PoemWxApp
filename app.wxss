@@ -43,6 +43,22 @@ button::after {
   background: linear-gradient(90deg, #a42d2d 5%, #fff 5%, #fff 6%, #a42d2d 6%, #a42d2d 94%, #fff 94%, #fff 95%, #a42d2d 95%);
 }
 
+.btn-next {
+  width: 38.776vw;
+  height: 8.163vw;
+  margin-top: 4.971vh;
+  background-color: #3f1921;
+  font-family: SourceHanSansCN-Normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: 3.061vw;
+  letter-spacing: 0vw;
+  color: #dcc8ac;
+  outline: 1.02vw solid #f5d8b3;
+  border-radius: 0;
+  box-shadow: 0.143vw 0.143vw 0.51vw 0vw #26180c inset, 0.143vw 0.143vw 0.51vw 0vw #26180c;
+}
+
 @keyframes fadeinT {
   0% {
     opacity: 0;

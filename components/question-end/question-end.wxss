@@ -1,7 +1,74 @@
 /* components/question-end.wxss */
-.quest_end {
-    padding:100px;
+@import "../../app.wxss";
+
+.question-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
 }
+
 text {
+    font-family: SourceHanSansCN-Normal;
+    font-size: 3.657vw;
+    color: #3f1921;
+}
+
+.notice-text {
+    width: 62.87vw;
+    height: 8.426vw;
+    letter-spacing: 0vw;
+    line-height: 4.444vw;
+}
+
+.score-section {
+    position: relative;
+    height: 18vw;
     display: block;
+    text-align: center
+}
+
+.score-num {
+    font-size: 16.254vw;
+}
+
+.score-text {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 3.519vw;
+}
+
+.avatar-section {
+    margin: auto;
+    border: solid #701322;
+    border-radius: 50%;
+    border: solid 2vw #701322;
+    background-color: white;
+    background-image: linear-gradient(180deg, transparent 0%, transparent 12%, #701322 12%, #701322 14%, transparent 14%, transparent 24%, #701322 24%, #701322 26%, transparent 26%, transparent 74%, #701322 74%, #701322 76%, transparent 76%, transparent 86%, #701322 86%, #701322 88%, transparent 88%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 12%, #701322 12%, #701322 14%, transparent 14%, transparent 24%, #701322 24%, #701322 26%, transparent 26%, transparent 74%, #701322 74%, #701322 76%, transparent 76%, transparent 86%, #701322 86%, #701322 88%, transparent 88%, transparent 100%);
+    width: 37.87vw;
+    height: 37.87vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.share-btn-section {
+    height: 20vh;
+}
+
+.avatar-outline {
+    width: 22vw;
+    height: 22vw;
+    border: solid .7574vw #701322;
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
+    background-color: white;
+}
+
+.head-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
 }

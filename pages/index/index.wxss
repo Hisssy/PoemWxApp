@@ -13,6 +13,7 @@
   box-shadow: 2.667vw 2.667vw 2.667vw 0px rgba(8, 5, 0, 0.4);
   align-self: flex-end;
   margin-bottom: 18.291vh;
+  animation: fadeinT 1s ease-out;
 }
 
 .login-header {
