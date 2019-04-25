@@ -12,7 +12,8 @@ Page({
     isEnd:false,
     isLoad:false,
     isClick:false,
-    avatarUrl:''
+    avatarUrl:'',
+    score:0,
   },
   onLoad:function(){
     this.setData({
@@ -30,6 +31,7 @@ Page({
       if(counter>0){
         counter--;
         _this.data.useTime++;
+        wx.setStorageSync('useTime',_this.data.useTime);
         this.setData({
           counter:counter
         })
@@ -65,6 +67,8 @@ Page({
         .then(data => {
           if(data.data.statusCode==301){
             _this.setData({
+              score:wx.getStorageSync('score'),
+              useTime:wx.getStorageSync('useTime'),
               isEnd:true
             })
           }else if(data.data.statusCode==302) {
