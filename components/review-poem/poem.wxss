@@ -1,15 +1,15 @@
 /* components/review-poem/poem.wxss */
 .poem {
-    font-family: SourceHanSansCN-Normal;
     font-size: 2.44vw;
     font-weight: normal;
     font-stretch: normal;
-    /* line-height: 1.6vw; */
     letter-spacing: 0.493vw;
     color: #3f1921;
+    margin-bottom: 1vh;
 }
 
 .poem.poem-index {
+    margin-top: 1vh;
     width: 100%;
 }
 

@@ -32,7 +32,6 @@
 }
 
 .review-title {
-	font-family: SourceHanSansCN-Normal;
 	font-size: 4.269vw;
 	font-weight: normal;
 	font-stretch: normal;
@@ -49,5 +48,4 @@
 
 review-poem {
 	width: 100%;
-	height: 24.067vw;
 }
