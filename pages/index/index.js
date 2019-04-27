@@ -2,8 +2,8 @@
 //获取应用实例
 const app = getApp()
 const promisify = require('../../utils/promisify')
-const wxGetSetting = promisify(wx.getSetting);
-const wxGetUserInfo = promisify(wx.getUserInfo);
+const wxGetSetting = promisify(wx.getSetting)
+const wxGetUserInfo = promisify(wx.getUserInfo)
 const wxCheckSession = promisify(wx.checkSession)
 Page({
   data: {
@@ -42,6 +42,7 @@ Page({
           wx.showToast({
             title: "成功！"
           });
+          app.globalData.userStatus = 200;
           this.getUserDetailInfo();
           this.closeLoginModal();
         } else {
@@ -70,9 +71,10 @@ Page({
     // 开始游戏
     if (e.detail.userInfo) {
       this.setWxUserInfo()
-        .then(ret => {
+        .then(() => {
+          ret = app.globalData.userStatus;
           console.log(ret);
-          if (ret === 200 || ret === undefined) {
+          if (ret === 200) {
             // Start game here!
             wx.navigateTo({
               url: "../question/question"
@@ -134,12 +136,10 @@ Page({
     // 从服务器拉取用户详细信息
     return app.fly.get(app.globalData.apiURL + "wxGetUserInfo")
       .then(ret => {
+        console.log(ret);
         let resp = ret.data;
         if (resp.statusCode === 200) {
-          delete resp.statusCode;
           this.setData(resp);
-        } else {
-          Promise.reject("服务器接口请求失败")
         }
       })
       .catch(err => {

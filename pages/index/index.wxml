@@ -67,9 +67,7 @@
           <text class="info-detail-text-item">姓名:{{userName}}</text>
           <text class="info-detail-text-item">学号:{{userCode}}</text>
           <text class="info-detail-text-item">邮箱:{{userEmail}}</text>
-          <text class="info-detail-text-item">
-            性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}
-          </text>
+          <text class="info-detail-text-item">性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}</text>
         </view>
         <view class="main-btn-section">
           <button class="main-btn" bindtap="showLoginModal">修改</button>

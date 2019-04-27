@@ -1,7 +1,8 @@
 var timer;
 const counterTime = 120;
 const app = getApp();
-
+const fT = require("../../utils/util")
+const formatTime = fT.formatTime;
 Page({
   data:{
     questionType:1,
@@ -16,6 +17,10 @@ Page({
     score:0,
   },
   onLoad:function(){
+    wx.setStorage({
+      key: "answerDate",
+      data: formatTime(new Date())
+    });
     wx.showShareMenu({
       withShareTicket: true
     }); 
