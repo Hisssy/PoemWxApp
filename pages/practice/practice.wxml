@@ -1,0 +1,10 @@
+<view id="main">
+    <view class="counter" wx-if="{{!isEnd}}">
+        <image class="flower" src="../../assets/answer/flower.png"></image>
+        <view class="flower-hikari"></view>
+        <view class="sec-counter">{{counter}}</view>
+    </view>
+      <question-section wx-if="{{isLoad}}" wx-show="{{!isEnd}}" id="questSec" questType="{{questContent.questionType}}" th="{{th}}" questData="{{questContent}}" bind:addScole="addScole" gameType="1"></question-section>
+    <button wx-if="{{isLoad}}" wx-show="{{!isEnd}}" class="btn-next" bindtap="questShift">下一题</button>
+    <question-end wx-if="{{isEnd}}" useTime="{{useTime}}" score="{{score}}" avatarUrl="{{avatarUrl}}"></question-end>
+</view>

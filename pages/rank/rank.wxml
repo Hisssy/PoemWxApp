@@ -13,7 +13,7 @@
                 <view class="info">
                     <view class="info-left">
                         <text>{{item.wxUserName}}</text>
-                        <text>{{item.userCollege | 'xxx'}}</text>
+                        <!-- <text>{{item.userCollege | 'xxx'}}</text> -->
                     </view>
                     <view class="info-right">
                         <text>积分:{{item.userScore | 0}}</text>

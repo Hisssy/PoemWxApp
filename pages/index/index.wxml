@@ -70,11 +70,12 @@
           <text class="info-detail-text-item">性别:{{userInfo.gender==1?"男":(userInfo.gender==2?"女":"未知")}}</text>
         </view>
         <view class="main-btn-section">
-          <button class="main-btn" bindtap="showLoginModal">修改</button>
+          <button class="main-btn" style="background-color:#a42d2d" bindtap="showLoginModal">修改</button>
         </view>
     </view>
   </popover>
   <button class="main-btn line h play-btn" bindgetuserinfo="startGame" open-type="getUserInfo">开始游戏</button>
+  <button class="main-btn v practice-btn" bindgetuserinfo="startPractice" open-type="getUserInfo">练习模式</button>
   <button class="main-btn v rank-btn" bindgetuserinfo="showRank" open-type="getUserInfo">排行榜</button>
   <button class="main-btn v info-btn" bindgetuserinfo="showInfoModal" open-type="getUserInfo">个人信息</button>
   <button class="main-btn v review-btn" bindgetuserinfo="showReview" open-type="getUserInfo">今日回顾</button>

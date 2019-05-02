@@ -1,6 +1,7 @@
 const app = getApp();
 Component({
   data: {
+    apiURL: app.globalData.apiURL,
     words: [],
     userAnswer: [],
     option: [
@@ -17,6 +18,10 @@ Component({
     optionIndex:-1
   },
   properties: {
+    gameType:{
+      type: Number,
+      value: 0 // 0 for game, 1 for practice
+    },
     questType: {
       type: Number,
       value: 1
@@ -26,7 +31,7 @@ Component({
       value: 1
     },
     questData:{
-      type:Object
+      type: Object
     }
   },
   methods: {
@@ -104,49 +109,80 @@ Component({
     },
     checkAnswer() {
       var questionType = this.data.questData.questionType;
-      var answer='';
-      switch (questionType){
+      var answer = '';
+      switch (questionType) {
         case 0:
           var optionIndex = this.data.optionIndex;
-          if(optionIndex==-1){
-            return new Promise((resolve,reject)=>{
-              setTimeout(function(){
+          if (optionIndex == -1) {
+            return new Promise((resolve, reject) => {
+              setTimeout(function () {
                 resolve(0)
-              },1000)
+              }, 1000)
             });
-          }else{
+          } else {
             answer = this.data.option[optionIndex].value;
           }
           break;
         case 1:
-          for(let i=0;i<this.data.userAnswer.length;i++){
-            if(this.data.userAnswer[i].word==undefined || this.data.userAnswer[i].word==''){
-              return new Promise((resolve,reject)=>{
-                setTimeout(function(){
+          for (let i = 0; i < this.data.userAnswer.length; i++) {
+            if (this.data.userAnswer[i].word == undefined || this.data.userAnswer[i].word == '') {
+              return new Promise((resolve, reject) => {
+                setTimeout(function () {
                   resolve(0)
-                },1000)
+                }, 1000)
               });
             }
-            answer+=this.data.userAnswer[i].word;
+            answer += this.data.userAnswer[i].word;
           }
           break;
       }
       console.log(answer)
-      return new Promise((resolve,reject)=>{
-        app.fly.request(app.globalData.apiURL + 'wxSubmitAnswer', {
-          questionSessId:this.data.questData.questionSessId,
-          answer:answer
-        }).then((res)=>{
-          wx.showToast({
-            icon: "none",
-            title: res.data.msg,
-            duration:1000
+      if (this.data.gameType === 0) {
+        return new Promise((resolve, reject) => {
+          app.fly.request(app.globalData.apiURL + "wxSubmitAnswer", {
+            questionSessId: this.data.questData.questionSessId,
+            answer: answer
+          }).then((res) => {
+            wx.showToast({
+              icon: "none",
+              title: res.data.msg,
+              duration: 1000
+            })
+            setTimeout(function () {
+              resolve(res.data.answerCode)
+            }, 1000)
+          }).catch(() => {})
+        })
+      } else {
+        if(answer!==this.data.questData.questionAnswer){
+          return new Promise((resolve, reject) => {
+            wx.showModal({
+              showCancel:false,
+              confirmText:"好的",
+              title: "正确答案",
+              content: this.data.questData.questionAnswer,
+              success(res) {
+                setTimeout(function () {
+                  resolve(200);
+                }, 500)
+              }
+            })
           })
-          setTimeout(function(){
-            resolve(res.data.answerCode)
-          },1000)
-        }).catch(()=>{})
-      })
+          .catch(() => {})
+        }else{
+          return new Promise((resolve, reject) => {
+            wx.showToast({
+              icon: "none",
+              title: "答案正确",
+              duration: 1000
+            })
+            setTimeout(function () {
+              resolve(200);
+            }, 1000)
+          })
+          .catch(() => {})
+        }
+      }
     }
   },
   lifetimes:{

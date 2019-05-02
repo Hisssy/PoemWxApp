@@ -88,6 +88,27 @@ Page({
         })
     }
   },
+  startPractice: function (e) {
+    // 开始游戏
+    if (e.detail.userInfo) {
+      this.setWxUserInfo()
+        .then(() => {
+          ret = app.globalData.userStatus;
+          console.log(ret);
+          if (ret === 200) {
+            // Start game here!
+            wx.navigateTo({
+              url: "../practice/practice"
+            })
+          } else {
+            this.showLoginModal();
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  },
   showInfoModal: function (e) {
     if (this.data.hasWxUserInfo && app.globalData.userStatus === 200) {
       this.setData({
